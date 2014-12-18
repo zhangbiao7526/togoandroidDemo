@@ -13,7 +13,7 @@ public class aaa extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.layout_title);
 		int a=11;
-		int b=11;
+		int b=12;
 	}
 
 }
