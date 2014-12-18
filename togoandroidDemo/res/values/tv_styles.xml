@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 登录界面，注册与找回密码字体layout_widthlayout_widthlayout_widthlayout_width颜色 -->
+    <color name="tv_login_regAndForget">#ADAFB3</color>
+    
+</resources>

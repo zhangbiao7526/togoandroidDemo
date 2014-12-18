@@ -1,0 +1,34 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" 
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.example.togodemo.home.OneSop_click">
+
+    <!-- 继承V7的actionBar 就要调用 app:
+	  xmlns:app="http://schemas.android.com/apk/res-auto"
+	  app:showAsAction="ifRoom"
+ 	    指明给哪个activity使用
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.example.android_unit9.MainActivity"
+      -->
+      <item
+        android:id="@+id/action_1"
+        android:icon="@drawable/la"
+        android:title="@string/action_settings"
+        app:showAsAction="ifRoom"
+        />
+    <!-- always 总是显示
+    android:enabled="false" 不可单击状态 -->
+	<item
+        android:id="@+id/action_2"
+        android:icon="@drawable/ic_action_share"
+        android:title="@string/action_settings"
+        app:showAsAction="always"
+        />
+	<item
+        android:id="@+id/action_3"
+        android:icon="@drawable/la"
+        android:title="@string/action_settings"
+        app:showAsAction="ifRoom"
+        />
+
+</menu>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/layout_classify_left_linear"
+        android:layout_width="90dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+         <Button
+        android:id="@+id/btn_classify_left_linear1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="right_Fragment1" />
+
+         <Button
+             android:id="@+id/btn_classify_left_linear2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="right_Fragment2" />
+
+         <Button
+             android:id="@+id/btn_classify_left_linear3"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="right_Fragment3" />
+          <Button
+        android:id="@+id/btn_classify_left_linear4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="right_Fragment4" />
+           <Button
+        android:id="@+id/btn_classify_left_linear5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="right_Fragment5" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fg_classify_right_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+    </FrameLayout>
+
+</LinearLayout>

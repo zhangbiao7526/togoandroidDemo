@@ -1,0 +1,55 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+<style name="CustomWindowTitleBackground">
+    <item name="android:background">@drawable/danfense</item>
+</style>
+<!-- 继承了亮度高的Theme样式 -->
+<style name="test" parent="android:Theme.Light">
+
+<item name="android:windowTitleSize">50dp</item>
+<item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleBackground</item>
+<item name="android:textColor">#00f</item>  
+<item name="android:textSize">14sp</item>  
+<item name="android:textStyle">bold</item>  
+</style>
+
+<style name="actionBar_" parent="Theme.AppCompat.Light">
+
+<item name="android:windowTitleSize">50dp</item>
+<item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleBackground</item>
+<item name="android:textColor">#00f</item>  
+<item name="android:textSize">14sp</item>  
+<item name="android:textStyle">bold</item>  
+</style>
+
+<style name="login_tv">
+        <item name="android:textSize">20sp</item>
+    </style>
+<!-- 
+若只是修改背景请修改 android:background
+若修改标题栏高度,请修改android:windowTitleSize
+对应字体，文本的参数 
+<item name="android:textColor">#00f</item>  
+<item name="android:textSize">14sp</item>  
+<item name="android:textStyle">bold</item> 
+自定义标题栏的高度
+<item name="android:windowTitleSize">50dp</item>
+-->
+</resources>

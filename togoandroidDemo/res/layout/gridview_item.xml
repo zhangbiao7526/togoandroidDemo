@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/gridmageViewitem"
+        android:layout_width="wrap_content"
+        android:layout_height="111dp"
+        android:scaleType="fitXY"
+        
+        android:src="@drawable/cimageview11" />
+
+    <TextView
+        android:id="@+id/gridtextviewitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</LinearLayout>
