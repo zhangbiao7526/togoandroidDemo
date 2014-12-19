@@ -37,9 +37,9 @@ public class shop_NetUtil {
 				//System.out.println("请求FinalServlet成功"+t);
 				//tv.setText(t.toString());//接收反馈回来的数据
 				//Toast.makeText(homeF_vpage_click, t.toString(), Toast.LENGTH_SHORT).show();
-				
 				Gson g=new Gson();
-				ShopInfo shop=g.fromJson((String) t, ShopInfo.class);
+				ShopInfo shop=g.fromJson( (String) t, ShopInfo.class);
+				if(shop!=null){
 				String img_uri=VARIABLE.HOME_URI+shop.getF_c_Simagpath();
 				fm.display(iv_, img_uri);
 				tv_oneshop_shopname.setText(shop.getF_c_Sname());
@@ -47,6 +47,7 @@ public class shop_NetUtil {
 				tv_oneshop_type.setText(shop.getF_c_Stype());
 				tv_oneshop_address.setText(shop.getF_c_Saddress());
 				tv_oneshop_description.setText(shop.getF_c_Sdescription());
+				}
 //				Intent in=new Intent(Register.this,Login.class);
 //				startActivity(in);
 			}

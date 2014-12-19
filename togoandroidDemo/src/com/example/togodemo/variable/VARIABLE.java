@@ -1,7 +1,8 @@
 package com.example.togodemo.variable;
 
 public class VARIABLE {
-	public static final String path="10.30.6.92:8080";
+//	public static final String path="10.30.6.92:8080";
+	public static final String path="192.168.173.1:8080";
 	/**
 	 * User_Login.java
 	 */
