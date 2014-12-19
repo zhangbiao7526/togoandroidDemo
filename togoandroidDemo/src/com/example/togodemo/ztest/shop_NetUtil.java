@@ -40,6 +40,7 @@ public class shop_NetUtil {
 				Gson g=new Gson();
 				ShopInfo shop=g.fromJson( (String) t, ShopInfo.class);
 				if(shop!=null){
+					int a=1;
 				String img_uri=VARIABLE.HOME_URI+shop.getF_c_Simagpath();
 				fm.display(iv_, img_uri);
 				tv_oneshop_shopname.setText(shop.getF_c_Sname());
