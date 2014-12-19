@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.togodemo"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+	<uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" 
+        android:name="com.example.togodemo.myApplication">
+        <activity
+            android:name="com.example.togodemo.MainActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/test">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity 
+            android:name="com.example.togodemo.user.User_Login"></activity>
+        <activity android:name="com.example.togodemo.aaa"/>
+        <!-- 不能忘记样式，否则生成不了class -->
+           <activity android:name="com.example.togodemo.home.OneSop_click"
+               		 android:label="返回"
+               		 android:icon="@drawable/ic_launcher"
+            	     android:theme="@style/actionBar_"/>
+           
+           <activity android:name="com.example.togodemo.user.UserRegister"/>
+           <activity android:name="com.example.togodemo.user.ForgotPassWord"></activity>
+    </application>
+
+</manifest>
