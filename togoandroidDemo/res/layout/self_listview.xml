@@ -2,11 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
- <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/top_relative"
-        android:fadingEdge="none" >
+ 
  
         <LinearLayout
            android:layout_width="wrap_content"
@@ -41,7 +37,7 @@
                         android:paddingTop="16.0dip" >
  
                         <TextView
-                            android:id="@+id/daifukuan"
+                            android:id="@+id/tv_baobeishoucang"
                             android:layout_width="wrap_content"
                             android:layout_height="fill_parent"
                         
@@ -49,7 +45,7 @@
                             android:gravity="center_vertical"
                             android:includeFontPadding="false"
                             android:paddingLeft="17.0dip"
-                            android:text="待付款"
+                            android:text="@string/tv_baobeishoucang"
                             android:textColor="#ff333333"
                             android:textSize="16.0sp" />
  
@@ -67,6 +63,7 @@
                         android:paddingTop="16.0dip" >
  
                         <TextView
+                             android:id="@+id/tv_waitinggoods"
                             android:layout_width="wrap_content"
                             android:layout_height="fill_parent"
                          
@@ -74,7 +71,7 @@
                             android:gravity="center_vertical"
                             android:includeFontPadding="false"
                             android:paddingLeft="17.0dip"
-                            android:text="待收货"
+                            android:text="@string/tv_waitinggoods"
                             android:textColor="#ff333333"
                             android:textSize="16.0sp" />
  
@@ -92,6 +89,7 @@
                         android:paddingTop="16.0dip" >
  
                         <TextView
+                            android:id="@+id/tv_allorders"
                             android:layout_width="wrap_content"
                             android:layout_height="fill_parent"
                           
@@ -99,7 +97,7 @@
                             android:gravity="center_vertical"
                             android:includeFontPadding="false"
                             android:paddingLeft="17.0dip"
-                            android:text="全部订单"
+                            android:text="@string/tv_allorders"
                             android:textColor="#ff333333"
                             android:textSize="16.0sp" />
  
@@ -117,6 +115,7 @@
                          android:paddingTop="16.0dip" >
  
                         <TextView
+                               android:id="@+id/tv_addressadministration"
                             android:layout_width="wrap_content"
                             android:layout_height="fill_parent"
                            
@@ -124,7 +123,7 @@
                             android:gravity="center_vertical"
                             android:includeFontPadding="false"
                             android:paddingLeft="17.0dip"
-                            android:text="地址管理"
+                            android:text="@string/tv_addressadministration"
                             android:textColor="#ff333333"
                             android:textSize="16.0sp" />
  
@@ -140,19 +139,18 @@
                          android:background="@drawable/sview02"
                          android:paddingBottom="16.0dip"
                          android:paddingTop="16.0dip" >
- 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="fill_parent"
-                           
-                            android:drawablePadding="10.0dip"
-                            android:gravity="center_vertical"
-                            android:includeFontPadding="false"
-                            android:paddingLeft="17.0dip"
-                            android:text="客服中心"
-                            android:textColor="#ff333333"
-                            android:textSize="16.0sp" />
- 
+
+                         <TextView
+                             android:id="@+id/tv_callcenter"
+                             android:layout_width="wrap_content"
+                             android:layout_height="fill_parent"
+                             android:drawablePadding="10.0dip"
+                             android:gravity="center_vertical"
+                             android:includeFontPadding="false"
+                             android:paddingLeft="17.0dip"
+                             android:text="@string/tv_callcenter"
+                             android:textColor="#ff333333"
+                             android:textSize="16.0sp" />
                        
                     </TableRow>
 
@@ -167,6 +165,7 @@
                          android:paddingTop="16.0dip" >
  
                         <TextView
+                            android:id="@+id/tv_browinghistory"
                             android:layout_width="wrap_content"
                             android:layout_height="fill_parent"
                            
@@ -174,7 +173,7 @@
                             android:gravity="center_vertical"
                             android:includeFontPadding="false"
                             android:paddingLeft="17.0dip"
-                            android:text="浏览记录"
+                            android:text="@string/tv_browinghistory"
                             android:textColor="#ff333333"
                             android:textSize="16.0sp" />
  
@@ -183,5 +182,5 @@
                 </TableLayout>
        </LinearLayout>
        </LinearLayout>
-      </ScrollView>
+    
 </RelativeLayout>

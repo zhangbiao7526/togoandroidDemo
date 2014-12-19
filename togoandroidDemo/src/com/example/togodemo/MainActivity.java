@@ -27,14 +27,46 @@ public class MainActivity extends abstOnTouchListener {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		//requestWindowFeature(Window.FEATURE_NO_TITLE);
 		 //自定义标题栏
         requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+		super.onCreate(savedInstanceState);
+		//requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 		
 		//自定义的标题栏xml布局
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.layout_title);
+		//找到个人中心textview
+		 TextView tv_shoucang=  (TextView) findViewById(R.id.tv_baobeishoucang);
+		 TextView tv_waitinggoods=  (TextView) findViewById(R.id.tv_waitinggoods);
+		 TextView tv_allorders=  (TextView) findViewById(R.id.tv_allorders);
+		 TextView tv_addressadministration=  (TextView) findViewById(R.id.tv_addressadministration);
+		 TextView tv_callcenter=  (TextView) findViewById(R.id.tv_callcenter);
+		 TextView tv_browinghistory=  (TextView) findViewById(R.id.tv_browinghistory);
+		 
+		//单击事件
+		 tv_shoucang.setClickable(true);
+		 tv_waitinggoods.setClickable(true);
+		 tv_allorders.setClickable(true);
+		 tv_addressadministration.setClickable(true);
+		 tv_callcenter.setClickable(true);
+		 tv_browinghistory.setClickable(true);
+		//获取焦点事件
+		 tv_shoucang.setFocusable(true);
+		 tv_waitinggoods.setFocusable(true);
+		 tv_allorders.setFocusable(true);
+		 tv_addressadministration.setFocusable(true);
+		 tv_callcenter.setFocusable(true);
+		 tv_browinghistory.setFocusable(true);
+		 
+		 tv_shoucang.setOnClickListener(this);
+		 tv_waitinggoods.setOnClickListener(this);
+		 tv_allorders.setOnClickListener(this);
+		 tv_addressadministration.setOnClickListener(this);
+		 tv_callcenter.setOnClickListener(this);
+		 tv_browinghistory.setOnClickListener(this);
+		 
+		
+		
 		// 初始化布局元素
 		initViews();
 		//获得fragment管理器

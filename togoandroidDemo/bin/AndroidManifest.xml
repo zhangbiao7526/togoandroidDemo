@@ -17,15 +17,18 @@
         android:theme="@style/AppTheme" 
         android:name="com.example.togodemo.myApplication">
         <activity
-            android:name="com.example.togodemo.MainActivity"
+            android:name="com.example.togodemo.StartPage"
             android:launchMode="singleTask"
-            android:theme="@style/test">
+          
+           >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+    <activity android:name="com.example.togodemo.MainActivity"
+        android:theme="@style/test"></activity>
         <activity 
             android:name="com.example.togodemo.user.User_Login"></activity>
         <activity android:name="com.example.togodemo.aaa"/>
@@ -37,6 +40,12 @@
            
            <activity android:name="com.example.togodemo.user.UserRegister"/>
            <activity android:name="com.example.togodemo.user.ForgotPassWord"></activity>
+           <activity android:name="com.example.selfcenter.self_shoucang"></activity>
+           <activity android:name="com.example.selfcenter.self_waitinggoods"></activity>
+           <activity android:name="com.example.selfcenter.self_allorders"></activity>
+           <activity android:name="com.example.selfcenter.self_addressadministration"></activity>
+           <activity android:name="com.example.selfcenter.self_callcenter"></activity>
+           <activity android:name="com.example.selfcenter.self_browinghistory"></activity>
     </application>
 
 </manifest>

@@ -1125,19 +1125,20 @@ containing a value of this type.
         public static final int page_indicator_unfocused=0x7f02007c;
         public static final int setting_selected=0x7f02007d;
         public static final int setting_unselected=0x7f02007e;
-        public static final int sview01=0x7f02007f;
-        public static final int sview02=0x7f020080;
-        public static final int tab_bg=0x7f020081;
-        public static final int tes=0x7f020082;
+        public static final int startbg=0x7f02007f;
+        public static final int sview01=0x7f020080;
+        public static final int sview02=0x7f020081;
+        public static final int tab_bg=0x7f020082;
+        public static final int tes=0x7f020083;
     }
     public static final class id {
         public static final int Addre=0x7f050089;
         public static final int Last=0x7f05008d;
-        public static final int MorePageTableLayout_Follow=0x7f050091;
+        public static final int MorePageTableLayout_Follow=0x7f050090;
         public static final int TextView01=0x7f05008a;
-        public static final int action_1=0x7f05009f;
-        public static final int action_2=0x7f0500a0;
-        public static final int action_3=0x7f0500a1;
+        public static final int action_1=0x7f0500a3;
+        public static final int action_2=0x7f0500a4;
+        public static final int action_3=0x7f0500a5;
         public static final int action_bar=0x7f05001d;
         public static final int action_bar_activity_content=0x7f050015;
         public static final int action_bar_container=0x7f05001c;
@@ -1162,7 +1163,7 @@ containing a value of this type.
         public static final int btn_more1=0x7f05007e;
         public static final int btn_more2=0x7f05007f;
         public static final int btn_more3=0x7f050080;
-        public static final int checkBox1=0x7f05009b;
+        public static final int checkBox1=0x7f05009f;
         public static final int checkbox=0x7f05002e;
         public static final int collapseActionView=0x7f05000d;
         public static final int contacts_image=0x7f050047;
@@ -1170,7 +1171,6 @@ containing a value of this type.
         public static final int contacts_text=0x7f050048;
         public static final int content=0x7f050042;
         public static final int content1=0x7f050041;
-        public static final int daifukuan=0x7f050093;
         public static final int default_activity_button=0x7f050029;
         public static final int dialog=0x7f05000e;
         public static final int disableHome=0x7f050008;
@@ -1203,14 +1203,14 @@ containing a value of this type.
         public static final int iv_HOMEFragment_good1=0x7f05007b;
         public static final int iv_HOMEFragment_good2=0x7f05007c;
         public static final int iv_HOMEFragment_good3=0x7f05007d;
-        public static final int iv_item_shopcarimg=0x7f05009c;
+        public static final int iv_item_shopcarimg=0x7f0500a0;
         public static final int iv_myhome=0x7f050065;
         public static final int iv_oneshop=0x7f050081;
         public static final int layout_classify_left_linear=0x7f05004f;
-        public static final int linearLayout1=0x7f05009a;
+        public static final int linearLayout1=0x7f05009e;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f05002a;
-        public static final int lv_shopcar=0x7f050099;
+        public static final int lv_shopcar=0x7f05009d;
         public static final int menu=0x7f05003d;
         public static final int message_image=0x7f050044;
         public static final int message_layout=0x7f050043;
@@ -1218,12 +1218,12 @@ containing a value of this type.
         public static final int middle=0x7f050012;
         public static final int mimazhaohuidaan=0x7f050059;
         public static final int mimazhaohuiwenti=0x7f05005e;
-        public static final int more_page_row1=0x7f050092;
-        public static final int more_page_row2=0x7f050094;
+        public static final int more_page_row1=0x7f050091;
+        public static final int more_page_row2=0x7f050093;
         public static final int more_page_row3=0x7f050095;
-        public static final int more_page_row4=0x7f050096;
-        public static final int more_page_row5=0x7f050097;
-        public static final int more_page_row6=0x7f050098;
+        public static final int more_page_row4=0x7f050097;
+        public static final int more_page_row5=0x7f050099;
+        public static final int more_page_row6=0x7f05009b;
         public static final int never=0x7f050009;
         public static final int newmima=0x7f050058;
         public static final int news_image=0x7f05004a;
@@ -1272,15 +1272,19 @@ containing a value of this type.
         public static final int t4=0x7f05008b;
         public static final int tabMode=0x7f050002;
         public static final int textView1=0x7f050040;
-        public static final int textView2=0x7f05009d;
-        public static final int textView3=0x7f05009e;
+        public static final int textView2=0x7f0500a1;
+        public static final int textView3=0x7f0500a2;
         public static final int title=0x7f05002c;
         public static final int top_action_bar=0x7f050021;
-        public static final int top_relative=0x7f050090;
         public static final int tuijian_header_img=0x7f050062;
         public static final int tuijian_pager1=0x7f05006e;
         public static final int tv_HOMEFragment_buymore_click1=0x7f050076;
         public static final int tv_HOMEFragment_buymore_click2=0x7f05007a;
+        public static final int tv_addressadministration=0x7f050098;
+        public static final int tv_allorders=0x7f050096;
+        public static final int tv_baobeishoucang=0x7f050092;
+        public static final int tv_browinghistory=0x7f05009c;
+        public static final int tv_callcenter=0x7f05009a;
         public static final int tv_login_forget=0x7f05006d;
         public static final int tv_login_register=0x7f05006c;
         public static final int tv_oneshop_address=0x7f050085;
@@ -1289,6 +1293,7 @@ containing a value of this type.
         public static final int tv_oneshop_shopname=0x7f050082;
         public static final int tv_oneshop_type=0x7f050084;
         public static final int tv_title=0x7f050067;
+        public static final int tv_waitinggoods=0x7f050094;
         public static final int up=0x7f050022;
         public static final int useLogo=0x7f050003;
         public static final int wanchengxiugai=0x7f050056;
@@ -1364,14 +1369,15 @@ containing a value of this type.
         public static final int self_listview=0x7f030029;
         public static final int setting_layout=0x7f03002a;
         public static final int shopcat_item=0x7f03002b;
-        public static final int support_simple_spinner_dropdown_item=0x7f03002c;
+        public static final int startactivitypg=0x7f03002c;
+        public static final int support_simple_spinner_dropdown_item=0x7f03002d;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
     }
     public static final class string {
-        public static final int Fname=0x7f0a002c;
-        public static final int Lname=0x7f0a002e;
+        public static final int Fname=0x7f0a0032;
+        public static final int Lname=0x7f0a0034;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abc_action_bar_home_description=0x7f0a0001;
@@ -1413,62 +1419,69 @@ containing a value of this type.
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
         public static final int action_settings=0x7f0a0013;
-        public static final int addre=0x7f0a003a;
-        public static final int address=0x7f0a0039;
+        public static final int addre=0x7f0a0040;
+        public static final int address=0x7f0a003f;
         /**  主界面 
          */
         public static final int app_name=0x7f0a0012;
-        public static final int btn_calloff=0x7f0a0051;
-        public static final int btn_login=0x7f0a0050;
-        public static final int currentcart=0x7f0a0047;
-        public static final int doit=0x7f0a003e;
-        public static final int email=0x7f0a0027;
-        public static final int enterAdress=0x7f0a0032;
-        public static final int enterDesc=0x7f0a0023;
-        public static final int enterEmail=0x7f0a0031;
-        public static final int enterPassword=0x7f0a0026;
-        public static final int enterPrice=0x7f0a0022;
-        public static final int enterProd=0x7f0a0021;
-        public static final int enterUsername=0x7f0a0025;
-        public static final int enteraddress=0x7f0a003b;
-        public static final int first=0x7f0a002d;
-        public static final int gologin=0x7f0a003d;
+        public static final int btn_calloff=0x7f0a0057;
+        public static final int btn_login=0x7f0a0056;
+        /**  分类
+         */
+        public static final int classify_cloth=0x7f0a0068;
+        public static final int classify_dayuse=0x7f0a0069;
+        public static final int classify_jiaju=0x7f0a006b;
+        public static final int classify_lingshi=0x7f0a006c;
+        public static final int classify_phone=0x7f0a006a;
+        public static final int currentcart=0x7f0a004d;
+        public static final int doit=0x7f0a0044;
+        public static final int email=0x7f0a002d;
+        public static final int enterAdress=0x7f0a0038;
+        public static final int enterDesc=0x7f0a0029;
+        public static final int enterEmail=0x7f0a0037;
+        public static final int enterPassword=0x7f0a002c;
+        public static final int enterPrice=0x7f0a0028;
+        public static final int enterProd=0x7f0a0027;
+        public static final int enterUsername=0x7f0a002b;
+        public static final int enteraddress=0x7f0a0041;
+        public static final int first=0x7f0a0033;
+        public static final int gologin=0x7f0a0043;
         public static final int hello_world=0x7f0a0014;
-        public static final int insert=0x7f0a0024;
-        public static final int lastname=0x7f0a002f;
-        public static final int login=0x7f0a0028;
-        public static final int logout=0x7f0a0043;
+        public static final int insert=0x7f0a002a;
+        public static final int lastname=0x7f0a0035;
+        public static final int login=0x7f0a002e;
+        public static final int logout=0x7f0a0049;
         /**  用户注册 
          */
-        public static final int menu_settings=0x7f0a001b;
-        public static final int newmima=0x7f0a0038;
-        public static final int or=0x7f0a0029;
-        public static final int pass01=0x7f0a0035;
-        public static final int password01=0x7f0a0034;
-        public static final int pizzades=0x7f0a0046;
-        public static final int pizzaname=0x7f0a0048;
-        public static final int pizzaprice=0x7f0a0045;
-        public static final int pizzatitle=0x7f0a0042;
-        public static final int productcatalog=0x7f0a0040;
-        public static final int productdescription=0x7f0a001f;
-        public static final int producttotal=0x7f0a0044;
-        public static final int putnewmima=0x7f0a003c;
-        public static final int quantity=0x7f0a0049;
-        public static final int register=0x7f0a002a;
-        public static final int registerEmail=0x7f0a0030;
-        public static final int setquantity=0x7f0a004a;
+        public static final int menu_settings=0x7f0a0021;
+        public static final int newmima=0x7f0a003e;
+        public static final int or=0x7f0a002f;
+        public static final int pass01=0x7f0a003b;
+        public static final int password01=0x7f0a003a;
+        public static final int pizzades=0x7f0a004c;
+        public static final int pizzaname=0x7f0a004e;
+        public static final int pizzaprice=0x7f0a004b;
+        public static final int pizzatitle=0x7f0a0048;
+        public static final int productcatalog=0x7f0a0046;
+        public static final int productdescription=0x7f0a0025;
+        public static final int producttotal=0x7f0a004a;
+        public static final int putnewmima=0x7f0a0042;
+        public static final int quantity=0x7f0a004f;
+        public static final int register=0x7f0a0030;
+        public static final int registerEmail=0x7f0a0036;
+        public static final int setquantity=0x7f0a0050;
         /**  购物车 
          */
-        public static final int shopcat_name=0x7f0a005c;
-        public static final int sign=0x7f0a0037;
-        public static final int submit=0x7f0a0033;
-        public static final int title_activity_login=0x7f0a0020;
-        public static final int title_activity_main_login=0x7f0a003f;
-        public static final int title_activity_product_details=0x7f0a001c;
-        public static final int title_activity_register=0x7f0a002b;
-        public static final int title_activity_register_=0x7f0a0036;
-        public static final int title_activity_shopping_cart=0x7f0a001d;
-        public static final int title_activity_shopping_cart_helper=0x7f0a001e;
+        public static final int shopcat_name=0x7f0a0062;
+        public static final int sign=0x7f0a003d;
+        public static final int submit=0x7f0a0039;
+        public static final int title_activity_login=0x7f0a0026;
+        public static final int title_activity_main_login=0x7f0a0045;
+        public static final int title_activity_product_details=0x7f0a0022;
+        public static final int title_activity_register=0x7f0a0031;
+        public static final int title_activity_register_=0x7f0a003c;
+        public static final int title_activity_shopping_cart=0x7f0a0023;
+        public static final int title_activity_shopping_cart_helper=0x7f0a0024;
         public static final int title_business=0x7f0a0010;
         public static final int title_classify=0x7f0a000f;
         public static final int title_home=0x7f0a000e;
@@ -1478,43 +1491,49 @@ containing a value of this type.
         public static final int title_shopcar=0x7f0a0011;
         /**  首页 
          */
-        public static final int tv_HOMEFragment_buymore=0x7f0a0054;
-        public static final int tv_HOMEFragment_good=0x7f0a0055;
-        public static final int tv_HOMEFragment_more=0x7f0a0056;
-        public static final int tv_btn_more=0x7f0a005a;
+        public static final int tv_HOMEFragment_buymore=0x7f0a005a;
+        public static final int tv_HOMEFragment_good=0x7f0a005b;
+        public static final int tv_HOMEFragment_more=0x7f0a005c;
+        public static final int tv_addressadministration=0x7f0a001e;
+        public static final int tv_allorders=0x7f0a001d;
+        public static final int tv_baobeishoucang=0x7f0a001b;
+        public static final int tv_browinghistory=0x7f0a0020;
+        public static final int tv_btn_more=0x7f0a0060;
+        public static final int tv_callcenter=0x7f0a001f;
         public static final int tv_daifukuan=0x7f0a001a;
         public static final int tv_first=0x7f0a0015;
         public static final int tv_fourth=0x7f0a0018;
-        public static final int tv_free_delivery=0x7f0a0058;
-        public static final int tv_login_forget=0x7f0a0053;
+        public static final int tv_free_delivery=0x7f0a005e;
+        public static final int tv_login_forget=0x7f0a0059;
         /**  登录界面 
          */
-        public static final int tv_login_name=0x7f0a004c;
-        public static final int tv_login_name_hide=0x7f0a004e;
-        public static final int tv_login_password=0x7f0a004d;
-        public static final int tv_login_password_hide=0x7f0a004f;
-        public static final int tv_login_register=0x7f0a0052;
+        public static final int tv_login_name=0x7f0a0052;
+        public static final int tv_login_name_hide=0x7f0a0054;
+        public static final int tv_login_password=0x7f0a0053;
+        public static final int tv_login_password_hide=0x7f0a0055;
+        public static final int tv_login_register=0x7f0a0058;
         /**  活动 
          */
-        public static final int tv_minprice=0x7f0a0057;
+        public static final int tv_minprice=0x7f0a005d;
         /**  个人中心 
          */
         public static final int tv_myhome=0x7f0a0019;
-        public static final int tv_oneshop_address=0x7f0a0060;
-        public static final int tv_oneshop_description=0x7f0a0061;
-        public static final int tv_oneshop_money=0x7f0a005e;
+        public static final int tv_oneshop_address=0x7f0a0066;
+        public static final int tv_oneshop_description=0x7f0a0067;
+        public static final int tv_oneshop_money=0x7f0a0064;
         /**  商品展示页面 
          */
-        public static final int tv_oneshop_shopname=0x7f0a005d;
-        public static final int tv_oneshop_type=0x7f0a005f;
-        public static final int tv_payment=0x7f0a005b;
-        public static final int tv_sales_promotion=0x7f0a0059;
+        public static final int tv_oneshop_shopname=0x7f0a0063;
+        public static final int tv_oneshop_type=0x7f0a0065;
+        public static final int tv_payment=0x7f0a0061;
+        public static final int tv_sales_promotion=0x7f0a005f;
         public static final int tv_second=0x7f0a0016;
         public static final int tv_third=0x7f0a0017;
         /**  标题栏 
          */
-        public static final int tv_title=0x7f0a004b;
-        public static final int viewshoppingcart=0x7f0a0041;
+        public static final int tv_title=0x7f0a0051;
+        public static final int tv_waitinggoods=0x7f0a001c;
+        public static final int viewshoppingcart=0x7f0a0047;
     }
     public static final class style {
         /** 

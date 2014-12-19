@@ -18,6 +18,13 @@
     <!-- 个人中心 -->
     <string name="tv_myhome">个人中心</string>
     <string name="tv_daifukuan">待付款</string>
+    <string name="tv_baobeishoucang">宝贝收藏</string>
+   <string name="tv_waitinggoods">待收货</string>
+    <string name="tv_allorders">全部订单</string>
+    <string name="tv_addressadministration">地址管理</string>
+    <string name="tv_callcenter">客服中心</string>
+    <string name="tv_browinghistory">浏览记录</string>
+    
     
     <!-- 用户注册 -->
 <string name="menu_settings">Settings</string>
@@ -108,4 +115,13 @@
     <string name="tv_oneshop_type">商品类型</string>
     <string name="tv_oneshop_address">商品所在地</string>
     <string name="tv_oneshop_description">商品秒速</string>
+    
+    
+     <!-- 分类-->
+       <string name ="classify_cloth">服装搭配</string>
+       <string name ="classify_dayuse">日用百货</string>
+       <string name ="classify_phone">手机数码</string>
+       <string name ="classify_jiaju">家纺家具</string>
+       <string name ="classify_lingshi">美味零食</string>
+  
 </resources>
