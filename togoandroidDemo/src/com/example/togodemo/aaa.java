@@ -17,6 +17,7 @@ public class aaa extends Activity{
 		int c=12;
 		int c=22;
 		int d=33;
+		int e=44;
 	}
 
 }
