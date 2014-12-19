@@ -37,6 +37,9 @@
            
            <activity android:name="com.example.togodemo.user.UserRegister"/>
            <activity android:name="com.example.togodemo.user.ForgotPassWord"></activity>
-    </application>
+       <activity android:name="com.example.togodemo.business.Activity_Free"/>
+       <activity android:name="com.example.togodemo.business.Activity_Minprice"/>
+       <activity android:name="com.example.togodemo.business.Activity_SalesPromotion"/>
+           </application>
 
 </manifest>
