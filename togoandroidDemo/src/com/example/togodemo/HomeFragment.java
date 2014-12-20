@@ -7,6 +7,7 @@ import net.tsz.afinal.FinalBitmap;
 
 import com.example.togodemo.R;
 import com.example.togodemo.home.OneSop_click;
+import com.example.togodemo.mode.ShopInfo;
 import com.example.togodemo.variable.VARIABLE;
 
 import android.content.Intent;
@@ -53,6 +54,9 @@ public class HomeFragment extends Fragment implements OnClickListener{
 	ListView list;
 	final String data[]={"a","b","c","d","newactivity","自定义listview"};
 	
+	private View[] buy_moreshop,good_moreshop;
+	private ArrayList<ShopInfo> list_buymore;
+	private myApplication my;
 	
     @Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -88,6 +92,21 @@ public class HomeFragment extends Fragment implements OnClickListener{
         
         tv_HOMEFragment_buymore_click1.setOnClickListener(this);
         tv_HOMEFragment_buymore_click2.setOnClickListener(this);
+        
+        my=(myApplication) getActivity().getApplication();
+		
+        //销量最多数组
+        buy_moreshop=new View[]{iv_HOMEFragment_buymore1,iv_HOMEFragment_buymore2,iv_HOMEFragment_buymore3};
+        good_moreshop=new View[]{iv_HOMEFragment_good1,iv_HOMEFragment_good2,iv_HOMEFragment_good3};
+        //销量最多集合：
+        list_buymore=(ArrayList<ShopInfo>) my.getList_buymoreshop();
+        if(my.list_buymoreshop==null){
+        //首页的图片后台处理,将所有字段读取出来，当某个页面需要用到时，在listview在进行区分，用fina框架进行读取图片
+        HomeNet.Buy_Moreshop(getActivity(),buy_moreshop);
+        System.out.println("全局缓存没有值");
+        }else{System.out.println("已有值");
+        for(ShopInfo s:my.getList_buymoreshop()){
+        System.out.println(s.getF_c_Simagpath()+","+s.getF_c_Sname());}}
         //        list=(ListView) messageLayout.findViewById(R.id.android_list);
 //       
 //        ArrayAdapter<String> adapter=new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,android.R.id.text1 ,data);
@@ -212,9 +231,14 @@ public class HomeFragment extends Fragment implements OnClickListener{
 		int id=v.getId();
 		switch (id) {
 		case R.id.iv_HOMEFragment_buymore1:
-			Intent in=new Intent();
-			in.setClass(getActivity(),OneSop_click.class);
-			getActivity().startActivity(in);
+//			 HomeNet.Buy_Moreshop(getActivity(),buy_moreshop);
+//			Intent in=new Intent();
+//			in.setClass(getActivity(),OneSop_click.class);
+//			getActivity().startActivity(in);
+			for(int i=0;i<3;i++){
+//			System.out.println(my.getList_buymoreshop().get(i).toString());
+				Toast.makeText(getActivity(), my.getList_buymoreshop().get(i).toString(), Toast.LENGTH_LONG).show();
+			}
 			break;
 
 		default:

@@ -3,10 +3,13 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
  
- 
+ 	<ScrollView 
+ 	     android:layout_width="wrap_content"
+           		android:layout_height="wrap_content" >
+
         <LinearLayout
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content" 
+            android:layout_width="wrap_content"
+            android:layout_height="319dp"
             android:gravity="center_vertical"
             android:orientation="vertical"
             android:paddingBottom="60.0dip"
@@ -16,7 +19,7 @@
         
               <LinearLayout
                 android:layout_width="wrap_content"
-           android:layout_height="wrap_content"  >
+           		android:layout_height="wrap_content"  >
  
                 <TableLayout
                     android:id="@+id/MorePageTableLayout_Follow"
@@ -182,5 +185,5 @@
                 </TableLayout>
        </LinearLayout>
        </LinearLayout>
-    
+    </ScrollView>
 </RelativeLayout>
