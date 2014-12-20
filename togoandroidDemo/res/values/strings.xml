@@ -104,7 +104,7 @@
     <string name="tv_free_delivery">包邮</string>
     <string name="tv_sales_promotion">限时促销</string>
     <string name="tv_btn_more">更多</string>
-    <string name="tv_payment">￥20 265人付款</string>
+    <string name="tv_payment">￥20 </string>
     
     <!-- 购物车 -->
     <string name ="shopcat_name">购物车</string>

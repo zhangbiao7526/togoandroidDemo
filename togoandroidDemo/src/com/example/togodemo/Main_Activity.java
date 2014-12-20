@@ -2,7 +2,6 @@ package com.example.togodemo;
 
 import com.example.togodemo.ui.abstOnTouchListener;
 import com.example.togodemo.user.User_Login;
-import com.example.togodemo.R;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,66 +23,65 @@ import android.widget.Toast;
  * @author guolin
  */
 public class Main_Activity extends abstOnTouchListener {
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		 //自定义标题栏
-        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+		// 自定义标题栏
+		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		super.onCreate(savedInstanceState);
-		//requestWindowFeature(Window.FEATURE_NO_TITLE);
+		// requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
-		
-		//自定义的标题栏xml布局
-		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.layout_title);
-		//找到个人中心textview
-		 TextView tv_shoucang=  (TextView) findViewById(R.id.tv_baobeishoucang);
-		 TextView tv_waitinggoods=  (TextView) findViewById(R.id.tv_waitinggoods);
-		 TextView tv_allorders=  (TextView) findViewById(R.id.tv_allorders);
-		 TextView tv_addressadministration=  (TextView) findViewById(R.id.tv_addressadministration);
-		 TextView tv_callcenter=  (TextView) findViewById(R.id.tv_callcenter);
-		 TextView tv_browinghistory=  (TextView) findViewById(R.id.tv_browinghistory);
-		 
-		//单击事件
-		 tv_shoucang.setClickable(true);
-		 tv_waitinggoods.setClickable(true);
-		 tv_allorders.setClickable(true);
-		 tv_addressadministration.setClickable(true);
-		 tv_callcenter.setClickable(true);
-		 tv_browinghistory.setClickable(true);
-		//获取焦点事件
-		 tv_shoucang.setFocusable(true);
-		 tv_waitinggoods.setFocusable(true);
-		 tv_allorders.setFocusable(true);
-		 tv_addressadministration.setFocusable(true);
-		 tv_callcenter.setFocusable(true);
-		 tv_browinghistory.setFocusable(true);
-		 
-		 tv_shoucang.setOnClickListener(this);
-		 tv_waitinggoods.setOnClickListener(this);
-		 tv_allorders.setOnClickListener(this);
-		 tv_addressadministration.setOnClickListener(this);
-		 tv_callcenter.setOnClickListener(this);
-		 tv_browinghistory.setOnClickListener(this);
-		 
-		
-		
+
+		// 自定义的标题栏xml布局
+		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
+				R.layout.layout_title);
+		// 找到个人中心textview
+		TextView tv_shoucang = (TextView) findViewById(R.id.tv_baobeishoucang);
+		TextView tv_waitinggoods = (TextView) findViewById(R.id.tv_waitinggoods);
+		TextView tv_allorders = (TextView) findViewById(R.id.tv_allorders);
+		TextView tv_addressadministration = (TextView) findViewById(R.id.tv_addressadministration);
+		TextView tv_callcenter = (TextView) findViewById(R.id.tv_callcenter);
+		TextView tv_browinghistory = (TextView) findViewById(R.id.tv_browinghistory);
+
+		// 单击事件
+		tv_shoucang.setClickable(true);
+		tv_waitinggoods.setClickable(true);
+		tv_allorders.setClickable(true);
+		tv_addressadministration.setClickable(true);
+		tv_callcenter.setClickable(true);
+		tv_browinghistory.setClickable(true);
+		// 获取焦点事件
+		tv_shoucang.setFocusable(true);
+		tv_waitinggoods.setFocusable(true);
+		tv_allorders.setFocusable(true);
+		tv_addressadministration.setFocusable(true);
+		tv_callcenter.setFocusable(true);
+		tv_browinghistory.setFocusable(true);
+
+		tv_shoucang.setOnClickListener(this);
+		tv_waitinggoods.setOnClickListener(this);
+		tv_allorders.setOnClickListener(this);
+		tv_addressadministration.setOnClickListener(this);
+		tv_callcenter.setOnClickListener(this);
+		tv_browinghistory.setOnClickListener(this);
+
 		// 初始化布局元素
 		initViews();
-		//获得fragment管理器
+		// 获得fragment管理器
 		fragmentManager = getSupportFragmentManager();
 		// 第一次启动时选中第0个tab
 		setTabSelection(0);
-		
-		  initValues();  //初始化 关键属性
-	      
-		  content.setOnTouchListener(this);//创建content的事件监听  
-		  
-	      //imageButton1.setOnTouchListener(this);
-	      myLinearLayout=(LinearLayout)this.findViewById(R.id.menu);
-	      right=(TextView) findViewById(R.id.tv_title);
-	       
-	       
+
+		initValues(); // 初始化 关键属性
+
+		content.setOnTouchListener(this);// 创建content的事件监听
+
+		// imageButton1.setOnTouchListener(this);
+		myLinearLayout = (LinearLayout) this.findViewById(R.id.menu);
+		right = (TextView) findViewById(R.id.tv_title);
+
 	}
+
 	/**
 	 * 重写手机自带退出按钮
 	 * 
@@ -91,73 +89,71 @@ public class Main_Activity extends abstOnTouchListener {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		Log.i("MainActivity", "onKeyDown");
-		if(keyCode==KeyEvent.KEYCODE_BACK&&event.getRepeatCount() == 0){
+		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
 			System.out.println(pageID);
-			if(pageID==0){
-				scrollToContent(); 
-				pageID=-1;
-			}else{
+			if (pageID == 0) {
+				scrollToContent();
+				pageID = -1;
+			} else {
 				exit();
 			}
 			return false;
 		}
 		return super.onKeyDown(keyCode, event);
 	}
-	public void exit(){
-		if(!wantToClose){
-		wantToClose=true;
-		Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();  
-		    mHandler.sendEmptyMessageDelayed(0, 2000); 
-        } else {  
-				 Intent intent = new Intent(Intent.ACTION_MAIN);  
 
-		            intent.addCategory(Intent.CATEGORY_HOME);  
+	public void exit() {
+		if (!wantToClose) {
+			wantToClose = true;
+			Toast.makeText(getApplicationContext(), "再按一次退出程序",
+					Toast.LENGTH_SHORT).show();
+			mHandler.sendEmptyMessageDelayed(0, 2000);
+		} else {
+			Intent intent = new Intent(Intent.ACTION_MAIN);
 
-		            startActivity(intent);  
-		            try {
-						Thread.sleep(1000);
-						 System.exit(0);  
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-		           
-        } 
-	}
-	@SuppressLint("HandlerLeak")
-	Handler mHandler = new Handler() {  
+			intent.addCategory(Intent.CATEGORY_HOME);
 
-        @Override  
-
-        public void handleMessage(Message msg) {  
-
-            // TODO Auto-generated method stub   
-
-            super.handleMessage(msg);  
-
-            wantToClose = false;  
-
-        }  
-
-  
-
-    }; 
-	
-	
-	public void click(View v){
-		myApplication my=(myApplication) this.getApplication();
-		if(flag==0&&my.isUSER_LOGIN()){
-			pageID=0;
-			scrollToMenu();
-			}else if(!my.isUSER_LOGIN()){
-				Intent in=new Intent(Main_Activity.this,User_Login.class);
-				startActivity(in);
-			}else if(flag==1){
-				pageID=-1;
-				scrollToContent();
+			startActivity(intent);
+			try {
+				Thread.sleep(1000);
+				System.exit(0);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
+
+		}
 	}
 
+	@SuppressLint("HandlerLeak")
+	Handler mHandler = new Handler() {
+
+		@Override
+		public void handleMessage(Message msg) {
+
+			// TODO Auto-generated method stub
+
+			super.handleMessage(msg);
+
+			wantToClose = false;
+
+		}
+
+	};
+
+	public void click(View v) {
+		myApplication my = (myApplication) this.getApplication();
+		if (flag == 0 && my.isUSER_LOGIN()) {
+			pageID = 0;
+			scrollToMenu();
+		} else if (!my.isUSER_LOGIN()) {
+			Intent in = new Intent(Main_Activity.this, User_Login.class);
+			startActivity(in);
+		} else if (flag == 1) {
+			pageID = -1;
+			scrollToContent();
+		}
+	}
 
 	/**
 	 * 在这里获取到每个需要用到的控件的实例，并给它们设置好必要的点击事件。
@@ -180,5 +176,5 @@ public class Main_Activity extends abstOnTouchListener {
 		businessLayout.setOnClickListener(this);
 		shopcarLayout.setOnClickListener(this);
 	}
-	 
+
 }

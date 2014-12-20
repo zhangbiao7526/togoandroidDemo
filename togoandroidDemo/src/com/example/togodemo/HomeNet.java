@@ -18,28 +18,30 @@ public class HomeNet {
 
 	public static void Buy_Moreshop(final FragmentActivity activity,
 			final View[] buy_moreshop) {
-		FinalHttp fh=new FinalHttp();
-		AjaxParams params=new AjaxParams();
+		FinalHttp fh = new FinalHttp();
+		AjaxParams params = new AjaxParams();
 		params.put("method", "find_buymoreshop");
-		
+
 		fh.post(VARIABLE.BUYMORE_SHOP, params, new AjaxCallBack<Object>() {
-			
+
 			@Override
 			public void onSuccess(Object t) {
 				// TODO Auto-generated method stub
 				super.onSuccess(t);
-				Gson g=new Gson();
-				//将集合字符串转换成集合
-				Type typeOfT=new TypeToken<List<ShopInfo>>(){}.getType();
-				myApplication my=(myApplication) activity.getApplication();
-				List<ShopInfo> list=my.list_buymoreshop;
-				list=g.fromJson((String) t, typeOfT);
+				Gson g = new Gson();
+				// 将集合字符串转换成集合
+				Type typeOfT = new TypeToken<List<ShopInfo>>() {
+				}.getType();
+				myApplication my = (myApplication) activity.getApplication();
+				List<ShopInfo> list = my.list_buymoreshop;
+				list = g.fromJson((String) t, typeOfT);
 				my.setList_buymoreshop(list);
-				for(ShopInfo s:list){
-				System.out.println("HomeNet:"+s.getF_c_Simagpath()+","+s.getF_c_Sname());
+				for (ShopInfo s : list) {
+					System.out.println("HomeNet:" + s.getF_c_Simagpath() + ","
+							+ s.getF_c_Sname());
 				}
 			}
 		});
 	}
-	
+
 }

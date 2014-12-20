@@ -1,16 +1,16 @@
-package com.example.selfcenter;
+package com.example.togodemo.business;
 
 import com.example.togodemo.R;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-public class self_allorders extends Activity {
+public class Activity_Free extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.a_shopshow);
+		setContentView(R.layout.news_free);
 	}
+
 }

@@ -1,7 +1,6 @@
 package com.example.selfcenter;
 
 import com.example.togodemo.R;
-
 import android.app.Activity;
 import android.os.Bundle;
 
