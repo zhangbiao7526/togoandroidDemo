@@ -17,22 +17,26 @@ import net.tsz.afinal.http.AjaxParams;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class UserRegister extends Activity {
-
+	InputMethodManager manager ;
 	EditText e1, e2, e3, e4;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.registeruser);
+		manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);  //单击空白处取消输入框
 		Button b1 = (Button) findViewById(R.id.sign);
 		b1.setOnClickListener(new OnClickListener() {
 
@@ -131,7 +135,20 @@ public class UserRegister extends Activity {
 			}
 		});
 	}
-
+	/**
+	 * 单击空白处隐藏keyboard
+	 */
+	
+	@Override  
+	 public boolean onTouchEvent(MotionEvent event) {  
+	  // TODO Auto-generated method stub  
+	  if(event.getAction() == MotionEvent.ACTION_DOWN){  
+	     if(getCurrentFocus()!=null && getCurrentFocus().getWindowToken()!=null){  
+	       manager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);  
+	     }  
+	  }  
+	  return super.onTouchEvent(event);  
+	 }  
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
