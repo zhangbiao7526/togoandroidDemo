@@ -132,16 +132,26 @@ public class ShopInfo implements Parcelable {
 	public int describeContents() {
 		return 0;
 	}
-
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
+		
 		dest.writeString(f_c_Sname);
 		dest.writeDouble(f_d_Ssprice);
+		dest.writeInt(f_i_Snum);
+		dest.writeString(f_c_Simagpath);
+		dest.writeString(f_c_Stype);
+		dest.writeString(f_c_Saddress);
+		dest.writeString(f_c_Sdescription);
 	}
 
 	public ShopInfo(Parcel source) {
 		f_c_Sname = source.readString();
 		f_d_Ssprice = source.readDouble();
+		f_i_Snum = source.readInt();
+		f_c_Simagpath = source.readString();
+		f_c_Stype = source.readString();
+		f_c_Saddress = source.readString();
+		f_c_Sdescription = source.readString();
 	}
 
 	public static final Parcelable.Creator<ShopInfo> CREATOR = new Creator<ShopInfo>() {

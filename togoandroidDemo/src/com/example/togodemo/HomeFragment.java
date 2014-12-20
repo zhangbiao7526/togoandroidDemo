@@ -4,9 +4,10 @@ import java.util.ArrayList;
 
 import net.tsz.afinal.FinalBitmap;
 
-import com.example.togodemo.home.OneSop_click;
+import com.example.togodemo.business.Activity_Minprice;
 import com.example.togodemo.mode.ShopInfo;
 import com.example.togodemo.variable.VARIABLE;
+import com.example.togodemo.ztest.HomeNet;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -54,7 +55,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 	ListView list;
 	final String data[] = { "a", "b", "c", "d", "newactivity", "自定义listview" };
 
-	private View[] buy_moreshop, good_moreshop;
+	private ImageView[] buy_moreshop, good_moreshop;
 	private ArrayList<ShopInfo> list_buymore;
 	private myApplication my;
 
@@ -63,6 +64,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		fm = FinalBitmap.create(getActivity());
+		
 	}
 
 	@Override
@@ -105,15 +107,15 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		my = (myApplication) getActivity().getApplication();
 
 		// 销量最多数组
-		buy_moreshop = new View[] { iv_HOMEFragment_buymore1,
+		buy_moreshop =new ImageView[] { iv_HOMEFragment_buymore1,
 				iv_HOMEFragment_buymore2, iv_HOMEFragment_buymore3 };
-		good_moreshop = new View[] { iv_HOMEFragment_good1,
+		good_moreshop =new ImageView[] { iv_HOMEFragment_good1,
 				iv_HOMEFragment_good2, iv_HOMEFragment_good3 };
 		// 销量最多集合：
 		list_buymore = (ArrayList<ShopInfo>) my.getList_buymoreshop();
 		if (my.list_buymoreshop == null) {
 			// 首页的图片后台处理,将所有字段读取出来，当某个页面需要用到时，在listview在进行区分，用fina框架进行读取图片
-			HomeNet.Buy_Moreshop(getActivity(), buy_moreshop);
+			HomeNet.Buy_Moreshop(getActivity(), buy_moreshop,fm);
 			System.out.println("全局缓存没有值");
 		} else {
 			System.out.println("已有值");
@@ -178,6 +180,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 										.show();
 								Intent in = new Intent();
 								in.putExtra("img_name", imgString[arg0]);
+								in.putExtra("method", "home_viewpg");
 								System.out.println(imgString[arg0]);
 								in.setClass(getActivity(), OneSop_click.class);
 								getActivity().startActivity(in);
@@ -234,23 +237,35 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		int id = v.getId();
 		switch (id) {
 		case R.id.iv_HOMEFragment_buymore1:
-			// HomeNet.Buy_Moreshop(getActivity(),buy_moreshop);
-			// Intent in=new Intent();
-			// in.setClass(getActivity(),OneSop_click.class);
-			// getActivity().startActivity(in);
-			for (int i = 0; i < 3; i++) {
-				// System.out.println(my.getList_buymoreshop().get(i).toString());
-				Toast.makeText(getActivity(),
-						my.getList_buymoreshop().get(i).toString(),
-						Toast.LENGTH_LONG).show();
-			}
+			click(0);
+			break;
+		case R.id.iv_HOMEFragment_buymore2:
+			click(1);
+			break;
+		case R.id.iv_HOMEFragment_buymore3:
+			click(2);
 			break;
 
 		default:
 			break;
 		}
 	}
-
+	/**
+	 * 首页的6个图片单击事件
+	 * @param i
+	 */
+	private void click(int i){
+		Intent intent=new Intent();
+		ShopInfo shop;
+		intent.putExtra("method", "home_buymore");
+		Bundle bundle = new Bundle();
+		shop=my.getList_buymoreshop().get(i);
+		bundle.putParcelable("buy_moreshop", shop);
+		intent.setClass(this.getActivity(), OneSop_click.class);
+		intent.putExtras(bundle);
+		getActivity().startActivity(intent);
+		
+	}
 	private void initAllItems() {
 		// 初始化Viewpager的所有item
 		for (int i = 0; i < imgResIDs.length; i++) {

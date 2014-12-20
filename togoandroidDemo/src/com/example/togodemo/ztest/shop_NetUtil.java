@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.togodemo.home.OneSop_click;
+import com.example.togodemo.OneSop_click;
 import com.example.togodemo.mode.ShopInfo;
 import com.example.togodemo.variable.VARIABLE;
 import com.google.gson.Gson;
@@ -45,7 +45,7 @@ public class shop_NetUtil {
 				Gson g = new Gson();
 				ShopInfo shop = g.fromJson((String) t, ShopInfo.class);
 				if (shop != null) {
-					String img_uri = VARIABLE.HOME_URI
+					String img_uri = VARIABLE.IMAGE_URL
 							+ shop.getF_c_Simagpath();
 					fm.display(iv_, img_uri);
 					tv_oneshop_shopname.setText(shop.getF_c_Sname());

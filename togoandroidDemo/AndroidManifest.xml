@@ -31,7 +31,7 @@
             android:name="com.example.togodemo.user.User_Login"></activity>
         <activity android:name="com.example.togodemo.aaa"/>
         <!-- 不能忘记样式，否则生成不了class -->
-           <activity android:name="com.example.togodemo.home.OneSop_click"
+           <activity android:name="com.example.togodemo.OneSop_click"
                		 android:label="返回"
                		 android:icon="@drawable/ic_launcher"
             	     android:theme="@style/actionBar_"/>

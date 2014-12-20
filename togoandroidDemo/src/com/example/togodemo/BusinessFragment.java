@@ -10,6 +10,7 @@ import com.example.togodemo.business.Activity_Minprice;
 import com.example.togodemo.business.Activity_SalesPromotion;
 import com.example.togodemo.mode.ShopInfo;
 import com.example.togodemo.variable.VARIABLE;
+import com.example.togodemo.ztest.BusinessNet;
 
 import android.support.v4.app.Fragment;
 import android.content.Intent;

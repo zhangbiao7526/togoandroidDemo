@@ -20,7 +20,6 @@ public class Activity_Minprice extends Activity {
 
 		Bundle bundle = getIntent().getExtras();
 		ShopInfo shopinfo = bundle.getParcelable("parcel");
-
 		tv_price.setText("$" + shopinfo.getF_d_Ssprice());
 		tv_shopname.setText(shopinfo.getF_c_Sname());
 	}
