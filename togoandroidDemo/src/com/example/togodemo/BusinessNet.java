@@ -76,9 +76,9 @@ public class BusinessNet {
 			@Override
 			protected void onPostExecute(List<ShopInfo> result) {
 				super.onPostExecute(result);
-				System.out.println("result" + result.toString());
 				myApplication ma;
 				if (result != null) {
+					System.out.println("result" + result.toString());
 					ma = (myApplication) businessFragment.getActivity()
 							.getApplication();
 					ma.setList_shopinfos(result);
