@@ -56,7 +56,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 	final String data[] = { "a", "b", "c", "d", "newactivity", "自定义listview" };
 
 	private ImageView[] buy_moreshop, good_moreshop;
-	private ArrayList<ShopInfo> list_buymore;
+	private ArrayList<ShopInfo> list_buymore,list_goodmore;
 	private myApplication my;
 
 	@Override
@@ -113,6 +113,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 				iv_HOMEFragment_good2, iv_HOMEFragment_good3 };
 		// 销量最多集合：
 		list_buymore = (ArrayList<ShopInfo>) my.getList_buymoreshop();
+		
 		if (my.list_buymoreshop == null) {
 			// 首页的图片后台处理,将所有字段读取出来，当某个页面需要用到时，在listview在进行区分，用fina框架进行读取图片
 			HomeNet.Buy_Moreshop(getActivity(), buy_moreshop,fm);
@@ -122,8 +123,19 @@ public class HomeFragment extends Fragment implements OnClickListener {
 			for (ShopInfo s : my.getList_buymoreshop()) {
 				System.out.println(s.getF_c_Simagpath() + ","
 						+ s.getF_c_Sname());
-			}
-		}
+			}}
+		//好评最多集合：
+		list_goodmore=(ArrayList<ShopInfo>) my.getList_goodshop();
+		if (my.list_goodshop == null) {
+			// 首页的图片后台处理,将所有字段读取出来，当某个页面需要用到时，在listview在进行区分，用fina框架进行读取图片
+			HomeNet.Good_Moreshop(getActivity(), good_moreshop,fm);
+			System.out.println("全局缓存没有值");
+		} else {
+			System.out.println("已有值");
+			for (ShopInfo s : my.getList_goodshop()) {
+				System.out.println(s.getF_c_Simagpath() + ","
+						+ s.getF_c_Sname());
+			}}
 		// list=(ListView) messageLayout.findViewById(R.id.android_list);
 		//
 		// ArrayAdapter<String> adapter=new ArrayAdapter<String>(getActivity(),
@@ -237,13 +249,22 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		int id = v.getId();
 		switch (id) {
 		case R.id.iv_HOMEFragment_buymore1:
-			click(0);
+			click_more(0);
 			break;
 		case R.id.iv_HOMEFragment_buymore2:
-			click(1);
+			click_more(1);
 			break;
 		case R.id.iv_HOMEFragment_buymore3:
-			click(2);
+			click_more(2);
+			break;
+		case R.id.iv_HOMEFragment_good1:
+			click_good(0);
+			break;
+		case R.id.iv_HOMEFragment_good2:
+			click_good(1);
+			break;
+		case R.id.iv_HOMEFragment_good3:
+			click_good(2);
 			break;
 
 		default:
@@ -251,12 +272,14 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		}
 	}
 	/**
-	 * 首页的6个图片单击事件
+	 * 首页的6个图片单击事件,共用一个handle
 	 * @param i
 	 */
-	private void click(int i){
+	private void click_more(int i){
 		Intent intent=new Intent();
 		ShopInfo shop;
+		//如果全局缓存不为空
+		if(my.getList_buymoreshop()!=null){
 		intent.putExtra("method", "home_buymore");
 		Bundle bundle = new Bundle();
 		shop=my.getList_buymoreshop().get(i);
@@ -264,7 +287,28 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		intent.setClass(this.getActivity(), OneSop_click.class);
 		intent.putExtras(bundle);
 		getActivity().startActivity(intent);
-		
+		}else{
+			Toast.makeText(getActivity(), "未联入后台", Toast.LENGTH_LONG).show();
+			intent.setClass(this.getActivity(), OneSop_click.class);
+			getActivity().startActivity(intent);
+		}
+	}
+	public void click_good(int i){
+		Intent intent=new Intent();
+		ShopInfo shop;
+		if(my.getList_goodshop()!=null){
+			intent.putExtra("method", "home_buymore");
+			Bundle bundle = new Bundle();	
+			shop=my.getList_goodshop().get(i);
+			bundle.putParcelable("buy_moreshop", shop);
+			intent.setClass(this.getActivity(), OneSop_click.class);
+			intent.putExtras(bundle);
+			getActivity().startActivity(intent);
+		}else{
+			Toast.makeText(getActivity(), "未联入后台", Toast.LENGTH_LONG).show();
+			intent.setClass(this.getActivity(), OneSop_click.class);
+			getActivity().startActivity(intent);
+		}
 	}
 	private void initAllItems() {
 		// 初始化Viewpager的所有item

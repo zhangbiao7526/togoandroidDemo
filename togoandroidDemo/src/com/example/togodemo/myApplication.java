@@ -59,9 +59,9 @@ public class myApplication extends Application {
 	 */
 	public List<ShopInfo> list_buymoreshop = null;
 	/**
-	 * 好评最多商品，//取3个最多展示于首页
+	 * 好评最多商品，//取3个最多展示于首页(8:30改)
 	 */
-	public List<ShopInfo> list_goodshop = new ArrayList<ShopInfo>();
+	public List<ShopInfo> list_goodshop = null;
 	// 获取从数据库返回的集合对象
 	private List<ShopInfo> list_shopinfos;
 

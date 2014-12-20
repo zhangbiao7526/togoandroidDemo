@@ -16,6 +16,7 @@ import net.tsz.afinal.http.AjaxParams;
 //import eyt.FinalHttp;
 
 import android.os.Bundle;
+import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -24,7 +25,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class UserRegister extends Main_Activity {
+public class UserRegister extends Activity {
 
 	EditText e1, e2, e3, e4;
 
