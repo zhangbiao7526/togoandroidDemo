@@ -119,6 +119,9 @@ public class HomeFragment extends Fragment implements OnClickListener {
 			HomeNet.Buy_Moreshop(getActivity(), buy_moreshop,fm);
 			System.out.println("全局缓存没有值");
 		} else {
+			for (int i = 0; i < 3; i++) {
+				fm.display(buy_moreshop[i], VARIABLE.IMAGE_URL+my.getList_buymoreshop().get(i).getF_c_Simagpath());
+			}
 			System.out.println("已有值");
 			for (ShopInfo s : my.getList_buymoreshop()) {
 				System.out.println(s.getF_c_Simagpath() + ","
@@ -131,16 +134,14 @@ public class HomeFragment extends Fragment implements OnClickListener {
 			HomeNet.Good_Moreshop(getActivity(), good_moreshop,fm);
 			System.out.println("全局缓存没有值");
 		} else {
+			for (int i = 0; i < 3; i++) {
+				fm.display(good_moreshop[i], VARIABLE.IMAGE_URL+my.getList_goodshop().get(i).getF_c_Simagpath());
+			}
 			System.out.println("已有值");
 			for (ShopInfo s : my.getList_goodshop()) {
 				System.out.println(s.getF_c_Simagpath() + ","
 						+ s.getF_c_Sname());
 			}}
-		// list=(ListView) messageLayout.findViewById(R.id.android_list);
-		//
-		// ArrayAdapter<String> adapter=new ArrayAdapter<String>(getActivity(),
-		// android.R.layout.simple_list_item_1,android.R.id.text1 ,data);
-		// list.setAdapter(adapter);
 
 		initAllItems();
 
@@ -149,8 +150,8 @@ public class HomeFragment extends Fragment implements OnClickListener {
 			@Override
 			public Object instantiateItem(View container, int position) {
 				View layout = items.get(position % items.size());
-				System.out.println("items.size:" + position % items.size()
-						+ "items.size():" + items.size());
+//				System.out.println("items.size:" + position % items.size()
+//						+ "items.size():" + items.size());
 				pager.addView(layout);
 				return layout;
 			}
@@ -170,7 +171,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 
 			@Override
 			public int getCount() {
-				System.out.println("imgResIDs.length:" + imgResIDs.length);
+//				System.out.println("imgResIDs.length:" + imgResIDs.length);
 				return imgResIDs.length;
 			}
 
