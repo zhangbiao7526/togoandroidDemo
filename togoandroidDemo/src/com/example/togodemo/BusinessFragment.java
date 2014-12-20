@@ -9,6 +9,7 @@ import com.example.togodemo.R;
 import com.example.togodemo.business.Activity_Free;
 import com.example.togodemo.business.Activity_Minprice;
 import com.example.togodemo.business.Activity_SalesPromotion;
+import com.example.togodemo.mode.ShopInfo;
 import com.example.togodemo.variable.VARIABLE;
 
 import android.support.v4.app.Fragment;
@@ -93,7 +94,17 @@ public class BusinessFragment extends Fragment implements OnClickListener {
 			intent.setClass(getActivity(),Activity_SalesPromotion.class);
 			startActivity(intent);
 		}else if(id==R.id.news_minprice_pic1){
-			
+			myApplication ma=(myApplication) this.getActivity().getApplication();
+		   List<ShopInfo> list_shopinfos = ma.getList_shopinfos();
+		   for(int i=0;i<2;i++){
+			   ShopInfo shopinfo=list_shopinfos.get(i);
+		   }
+		   ShopInfo shopinfo1=list_shopinfos.get(0);
+		   Bundle bundle=new Bundle();
+		   bundle.putParcelable("parcel", shopinfo1);
+		   intent.setClass(this.getActivity(), Activity_Minprice.class);
+		   intent.putExtras(bundle);
+		   startActivity(intent);
 		}
 			
 	}

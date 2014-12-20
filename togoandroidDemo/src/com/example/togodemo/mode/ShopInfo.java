@@ -1,6 +1,9 @@
 package com.example.togodemo.mode;
 
-public class ShopInfo {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class ShopInfo implements Parcelable{
 	
 	Integer f_i_Sid;
 	String f_c_Sname;
@@ -93,6 +96,7 @@ public class ShopInfo {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	@Override
 	public String toString() {
 		return "ShopInfo [f_i_Sid=" + f_i_Sid + ", f_c_Sname=" + f_c_Sname
@@ -102,6 +106,34 @@ public class ShopInfo {
 				+ ", f_c_Saddress=" + f_c_Saddress + ", f_c_Sdescription="
 				+ f_c_Sdescription + "]";
 	}
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(f_c_Sname);
+		dest.writeDouble(f_d_Ssprice);
+	}
 	
+	public ShopInfo(Parcel source) {
+		f_c_Sname=source.readString();
+		f_d_Ssprice=source.readDouble();
+	}
+	
+	public static final Parcelable.Creator<ShopInfo> CREATOR=new Creator<ShopInfo>() {
+		
+		@Override
+		public ShopInfo[] newArray(int size) {
+			
+			return new ShopInfo[size];
+		}
+		
+		@Override
+		public ShopInfo createFromParcel(Parcel source) {
+			
+			return new ShopInfo(source);
+		}
+	};
 
 }

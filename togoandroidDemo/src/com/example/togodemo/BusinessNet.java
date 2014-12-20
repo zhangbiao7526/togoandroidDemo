@@ -79,17 +79,15 @@ public class BusinessNet {
 			protected void onPostExecute(List<ShopInfo> result) {
 				super.onPostExecute(result);
 				System.out.println("result"+result.toString());
+				myApplication ma;
 				if(result!=null){
-				for(int i=0;i<3;i++){
+					ma=(myApplication) businessFragment.getActivity().getApplication();
+					ma.setList_shopinfos(result);
+				for(int i=0;i<2;i++){
 					ShopInfo S=(ShopInfo)result.get(i);
-//					ShopInfo S1=(ShopInfo)result.get(0);
 					tv_list.get(i).setText("$"+S.getF_d_Ssprice());
 					tv_desclist.get(i).setText(""+S.getF_c_Sname());
-					//tv_list.setText("$"+S.getF_d_Ssprice());
-					System.out.println("for"+S.toString());
 				}
-//				ShopInfo S1=(ShopInfo)result.get(0);
-//				tv_list.setText("$"+S1.getF_d_Ssprice());
 				Toast.makeText(businessFragment.getActivity(), "aaa", Toast.LENGTH_LONG).show();
 			}else{
 				Toast.makeText(businessFragment.getActivity(), "aa", Toast.LENGTH_LONG).show();
