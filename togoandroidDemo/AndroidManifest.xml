@@ -27,7 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    <activity android:name="com.example.togodemo.MainActivity"
+    <activity android:name="com.example.togodemo.Main_Activity"
         android:theme="@style/test"></activity>
         <activity 
             android:name="com.example.togodemo.user.User_Login"></activity>

@@ -23,7 +23,7 @@ import android.widget.Toast;
  * 
  * @author guolin
  */
-public class MainActivity extends abstOnTouchListener {
+public class Main_Activity extends abstOnTouchListener {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -150,7 +150,7 @@ public class MainActivity extends abstOnTouchListener {
 			pageID=0;
 			scrollToMenu();
 			}else if(!my.isUSER_LOGIN()){
-				Intent in=new Intent(MainActivity.this,User_Login.class);
+				Intent in=new Intent(Main_Activity.this,User_Login.class);
 				startActivity(in);
 			}else if(flag==1){
 				pageID=-1;

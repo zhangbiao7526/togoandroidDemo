@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
-import android.view.WindowManager;
 
 /*
  * 杨鸿谋
@@ -26,7 +25,7 @@ public class StartPage extends Activity {
 new Handler().postDelayed(new Runnable(){
 	@Override
 	public void run(){
-		Intent intent = new Intent (StartPage.this,MainActivity.class);			
+		Intent intent = new Intent (StartPage.this,com.example.togodemo.Main_Activity.class);			
 		startActivity(intent);			
 		StartPage.this.finish();
 		
