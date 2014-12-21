@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import net.tsz.afinal.FinalBitmap;
 
 import com.example.togodemo.business.Activity_Minprice;
+import com.example.togodemo.home.Home_moreshop_click;
 import com.example.togodemo.mode.ShopInfo;
 import com.example.togodemo.variable.VARIABLE;
 import com.example.togodemo.ztest.HomeNet;
@@ -30,6 +31,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 	private ImageView iv_HOMEFragment_buymore1, iv_HOMEFragment_buymore2,
 			iv_HOMEFragment_buymore3, iv_HOMEFragment_good1,
 			iv_HOMEFragment_good2, iv_HOMEFragment_good3;
+	
 	private TextView tv_HOMEFragment_buymore_click1,
 			tv_HOMEFragment_buymore_click2;
 
@@ -267,7 +269,10 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		case R.id.iv_HOMEFragment_good3:
 			click_good(2);
 			break;
-
+		case R.id.tv_HOMEFragment_buymore_click1:
+			Intent in=new Intent();
+			in.setClass(getActivity(), Home_moreshop_click.class);
+			startActivity(in);
 		default:
 			break;
 		}

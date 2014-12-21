@@ -35,7 +35,7 @@
                		 android:label="返回"
                		 android:icon="@drawable/ic_launcher"
             	     android:theme="@style/actionBar_"/>
-
+		   <activity android:name="com.example.togodemo.home.Home_moreshop_click"/>
            <activity android:name="com.example.togodemo.user.UserRegister"/>
            <activity android:name="com.example.togodemo.user.ForgotPassWord"></activity>
            <activity android:name="com.example.selfcenter.self_shoucang"></activity>
