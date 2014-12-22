@@ -7,8 +7,8 @@ public class VARIABLE {
 	
 	
 	//地址：
-	//public static final String path = "10.30.6.92:8080";
-	public static final String path = "172.27.35.1:8080";
+	public static final String path = "10.30.6.92:8080";
+//	public static final String path = "172.27.35.1:8080";
 	//public static final String path = "10.30.6.45:8080";
 	/**
 	 * User_Login.java
