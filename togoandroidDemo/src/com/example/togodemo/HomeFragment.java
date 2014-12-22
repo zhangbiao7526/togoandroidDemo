@@ -248,6 +248,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 	 */
 	@Override
 	public void onClick(View v) {
+		Intent in=new Intent();
 		int id = v.getId();
 		switch (id) {
 		case R.id.iv_HOMEFragment_buymore1:
@@ -269,7 +270,12 @@ public class HomeFragment extends Fragment implements OnClickListener {
 			click_good(2);
 			break;
 		case R.id.tv_HOMEFragment_buymore_click1:
-			Intent in=new Intent();
+			in.putExtra("tv_HOMEFragment_buymore_click1", "buymore_shop");
+			in.setClass(getActivity(), Home_moreshop_click.class);
+			startActivity(in);
+			break;
+		case R.id.tv_HOMEFragment_buymore_click2:
+			in.putExtra("tv_HOMEFragment_buymore_click2", "goodmore_shop");
 			in.setClass(getActivity(), Home_moreshop_click.class);
 			startActivity(in);
 		default:

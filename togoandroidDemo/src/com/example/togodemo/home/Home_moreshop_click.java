@@ -8,17 +8,19 @@ import com.example.togodemo.myApplication;
 import com.example.togodemo.mode.ShopInfo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Home_moreshop_click extends Activity {
+public class Home_moreshop_click extends Activity implements android.widget.AdapterView.OnItemClickListener{
 
 	private ShopInfo shop;
 	private ArrayList<ShopInfo> list_goodmore;
@@ -29,14 +31,24 @@ public class Home_moreshop_click extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.listview_layout);
 		myApplication my=(myApplication) this.getApplication();
-		
+		Intent in=super.getIntent();
 		listview=(ListView) findViewById(R.id.shop_listview);
-		if(my.getList_buymoreshop()!=null){
+		
+		listview.setOnItemClickListener(this);	
+		
+		if(my.getList_buymoreshop()!=null&&"buymore_shop".equals(in.getStringExtra("tv_HOMEFragment_buymore_click1"))){
 			ArrayList<ShopInfo> list_buymore=(ArrayList<ShopInfo>) my.getList_buymoreshop();
 			NewAdapter newadapter=new NewAdapter(list_buymore);
 			listview.setAdapter(newadapter);
 			Toast.makeText(this, list_buymore.get(0).toString(), Toast.LENGTH_SHORT).show();	
-		}else{
+		}
+		if(my.getList_goodshop()!=null&&"goodmore_shop".equals(in.getStringExtra("tv_HOMEFragment_buymore_click2"))){
+			ArrayList<ShopInfo> list_goodmore=(ArrayList<ShopInfo>) my.getList_goodshop();
+			NewAdapter newadapter=new NewAdapter(list_goodmore);
+			listview.setAdapter(newadapter);
+			Toast.makeText(this, list_goodmore.get(0).toString(), Toast.LENGTH_SHORT).show();	
+		}
+		else{
 			Toast.makeText(this, "未加载完成，请返回", Toast.LENGTH_SHORT).show();
 		}
 		//list_buymore=(ArrayList<ShopInfo>) my.getList_goodshop();//数据源
@@ -115,6 +127,13 @@ public class Home_moreshop_click extends Activity {
 			
 			return convertView;
 		}
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		ShopInfo shop=(ShopInfo) parent.getItemAtPosition(position);
+		Toast.makeText(this, shop.toString(), Toast.LENGTH_SHORT).show();
 	}
 		
 }
