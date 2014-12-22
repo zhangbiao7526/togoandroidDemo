@@ -13,6 +13,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import com.example.togodemo.ShopcarFragment.NewAdapter;
 import com.example.togodemo.myApplication;
+import com.example.togodemo.variable.VARIABLE;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -21,10 +22,15 @@ import android.support.v4.app.FragmentActivity;
 import android.widget.ListView;
 
 public class NetUtil1 {
-	public static final String Path = "http://192.168.173.1:8080/togoProjectDemo/servlet/and_Login";
 
 	// public static final String
 	// Path="http://10.30.6.92:8080/togoProjectDemo/servlet/and_Login";
+	/**
+	 * shopcarfragment
+	 * @param fragmentActivity
+	 * @param listview
+	 * @param newadapter
+	 */
 	public static void getDataFromServer(
 			final FragmentActivity fragmentActivity, final ListView listview,
 			final NewAdapter newadapter) {
@@ -36,7 +42,7 @@ public class NetUtil1 {
 
 				try {
 					HttpClient client = new DefaultHttpClient();
-					HttpGet get = new HttpGet(Path);
+					HttpGet get = new HttpGet(VARIABLE.SELECT_ONESHOP);
 					HttpResponse response = client.execute(get);
 					if (response.getStatusLine().getStatusCode() == 200) {
 						InputStream in = response.getEntity().getContent();

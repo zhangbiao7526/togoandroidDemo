@@ -35,5 +35,6 @@
         android:layout_alignBottom="@+id/iv_myhome"
         android:layout_centerHorizontal="true"
         android:text="@string/title_home" />
+
     
 </RelativeLayout>  

@@ -5,10 +5,23 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+import net.tsz.afinal.FinalBitmap;
+
 import com.example.togodemo.mode.ShopInfo;
+import com.example.togodemo.variable.VARIABLE;
 import com.example.togodemo.ztest.shop;
 
 import android.app.Application;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * 全局变量。待开发中，application比整个工程的生命周期都长
@@ -63,7 +76,8 @@ public class myApplication extends Application {
 	public List<ShopInfo> list_goodshop = null;
 	// 获取从数据库返回的集合对象
 	private List<ShopInfo> list_shopinfos;
-
+	
+	
 	@Override
 	public void onCreate() {
 		// TODO Auto-generated method stub
@@ -110,5 +124,5 @@ public class myApplication extends Application {
 	public void setList_shopinfos(List<ShopInfo> list_shopinfos) {
 		this.list_shopinfos = list_shopinfos;
 	}
-
+	
 }

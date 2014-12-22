@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -57,6 +58,10 @@ public class ClassifyFragment_right4 extends Fragment {
 					int position, long id) {
 				Toast.makeText(getActivity(), "你按下 " + imgText[position],
 						Toast.LENGTH_SHORT).show();
+				Intent in=new Intent();
+				in.putExtra("fenlei", imgText[position]);
+				in.setClass(getActivity(), Classify_Activity_children.class);
+				getActivity().startActivity(in);
 			}
 
 		});
