@@ -8,6 +8,7 @@ import net.tsz.afinal.FinalBitmap;
 import com.example.togodemo.business.Activity_Free;
 import com.example.togodemo.business.Activity_Minprice;
 import com.example.togodemo.business.Activity_SalesPromotion;
+import com.example.togodemo.business.Minprice_pic1;
 import com.example.togodemo.mode.ShopInfo;
 import com.example.togodemo.variable.VARIABLE;
 import com.example.togodemo.ztest.BusinessNet;
@@ -111,7 +112,7 @@ public class BusinessFragment extends Fragment implements OnClickListener {
 			ShopInfo shopinfo1 = list_shopinfos.get(0);
 			Bundle bundle = new Bundle();
 			bundle.putParcelable("parcel", shopinfo1);
-			intent.setClass(this.getActivity(), Activity_Minprice.class);
+			intent.setClass(this.getActivity(), Minprice_pic1.class);
 			intent.putExtras(bundle);
 			startActivity(intent);
 		}

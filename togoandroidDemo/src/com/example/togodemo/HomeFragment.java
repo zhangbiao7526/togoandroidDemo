@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import net.tsz.afinal.FinalBitmap;
 
-import com.example.togodemo.business.Activity_Minprice;
 import com.example.togodemo.home.Home_moreshop_click;
 import com.example.togodemo.mode.ShopInfo;
 import com.example.togodemo.variable.VARIABLE;

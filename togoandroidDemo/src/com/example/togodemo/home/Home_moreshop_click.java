@@ -8,7 +8,6 @@ import com.example.togodemo.myApplication;
 import com.example.togodemo.mode.ShopInfo;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
