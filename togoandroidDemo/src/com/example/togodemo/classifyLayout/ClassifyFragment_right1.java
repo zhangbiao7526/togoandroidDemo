@@ -60,7 +60,9 @@ public class ClassifyFragment_right1 extends Fragment {
 				Toast.makeText(getActivity(), "你按下 " + imgText[position],
 						Toast.LENGTH_SHORT).show();
 				Intent in=new Intent();
+				in.putExtra("fenlei", imgText[position]);
 				in.setClass(getActivity(), Classify_Activity_children.class);
+				getActivity().startActivity(in);
 			}
 
 		});
