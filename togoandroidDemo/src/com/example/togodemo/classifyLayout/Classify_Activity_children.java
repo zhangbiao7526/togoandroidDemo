@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.tsz.afinal.FinalBitmap;
 
+import com.example.togodemo.OneSop_click;
 import com.example.togodemo.R;
 import com.example.togodemo.mode.ShopInfo;
 import com.example.togodemo.variable.VARIABLE;
@@ -140,7 +141,9 @@ public class Classify_Activity_children extends Activity implements android.widg
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
 			ShopInfo shop=(ShopInfo) parent.getItemAtPosition(position);
-			Toast.makeText(this, shop.toString(), Toast.LENGTH_SHORT).show();
+//			Toast.makeText(this, shop.toString(), Toast.LENGTH_SHORT).show();
+			Intent in=new Intent(Classify_Activity_children.this,OneSop_click.class);
+			startActivity(in);
 		}
 
 }

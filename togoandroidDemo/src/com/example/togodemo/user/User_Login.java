@@ -56,15 +56,15 @@ public class User_Login extends FinalActivity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("username", edt_login_name.getText().toString());
-		map.put("userpassword", edt_login_password.getText().toString());
+		map.put("username", edt_login_name.getText().toString().trim());
+		map.put("userpassword", edt_login_password.getText().toString().trim());
 		int id = v.getId();
 		switch (id) {
 		case R.id.btn_login:
-			if ("".equals(edt_login_name.getText().toString())
+			if ("".equals(edt_login_name.getText().toString().trim())
 					|| edt_login_name.getText().toString() == null) {
 				Toast.makeText(this, "用户名不能为空", Toast.LENGTH_SHORT).show();
-			} else if ("".equals(edt_login_password.getText().toString())
+			} else if ("".equals(edt_login_password.getText().toString().trim())
 					|| edt_login_password.getText().toString() == null) {
 				Toast.makeText(this, "密码不能为空", Toast.LENGTH_SHORT).show();
 			}

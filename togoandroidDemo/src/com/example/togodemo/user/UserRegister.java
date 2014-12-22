@@ -58,10 +58,10 @@ public class UserRegister extends Activity {
 				e3 = (EditText) findViewById(R.id.pass01);
 				e4 = (EditText) findViewById(R.id.Addre);
 
-				final String username = e1.getText().toString();
-				final String password = e2.getText().toString();
-				String uesrquestion = e3.getText().toString();
-				String useranswer = e4.getText().toString();
+				final String username = e1.getText().toString().trim();
+				final String password = e2.getText().toString().trim();
+				String uesrquestion = e3.getText().toString().trim();
+				String useranswer = e4.getText().toString().trim();
 
 				if ("".equals(username) || username == null) {
 					Toast.makeText(UserRegister.this, "用户名不能为空",
