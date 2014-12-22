@@ -1446,14 +1446,15 @@ containing a value of this type.
         public static final int news_free=0x7f030028;
         public static final int news_layout=0x7f030029;
         public static final int news_minprice=0x7f03002a;
-        public static final int news_salespromotion=0x7f03002b;
-        public static final int oneshop_layout=0x7f03002c;
-        public static final int registeruser=0x7f03002d;
-        public static final int self_listview=0x7f03002e;
-        public static final int setting_layout=0x7f03002f;
-        public static final int shopcat_item=0x7f030030;
-        public static final int startactivitypg=0x7f030031;
-        public static final int support_simple_spinner_dropdown_item=0x7f030032;
+        public static final int news_minprice_pic1=0x7f03002b;
+        public static final int news_salespromotion=0x7f03002c;
+        public static final int oneshop_layout=0x7f03002d;
+        public static final int registeruser=0x7f03002e;
+        public static final int self_listview=0x7f03002f;
+        public static final int setting_layout=0x7f030030;
+        public static final int shopcat_item=0x7f030031;
+        public static final int startactivitypg=0x7f030032;
+        public static final int support_simple_spinner_dropdown_item=0x7f030033;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
