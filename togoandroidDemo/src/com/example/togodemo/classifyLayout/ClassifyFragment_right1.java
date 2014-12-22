@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -20,7 +21,7 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class ClassifyFragment_right1 extends Fragment {
-
+	
 	private GridView gridView;
 	private int[] image = { R.drawable.cimageview11, R.drawable.cimageview12,
 			R.drawable.cimageview13, R.drawable.cimageview14,
@@ -35,7 +36,7 @@ public class ClassifyFragment_right1 extends Fragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.frg_classify_right1, container,
 				false);
-
+		
 		List<Map<String, Object>> items = new ArrayList<Map<String, Object>>();
 		for (int i = 0; i < image.length; i++) {
 			Map<String, Object> item = new HashMap<String, Object>();
@@ -58,6 +59,8 @@ public class ClassifyFragment_right1 extends Fragment {
 					int position, long id) {
 				Toast.makeText(getActivity(), "你按下 " + imgText[position],
 						Toast.LENGTH_SHORT).show();
+				Intent in=new Intent();
+				in.setClass(getActivity(), Classify_Activity_children.class);
 			}
 
 		});

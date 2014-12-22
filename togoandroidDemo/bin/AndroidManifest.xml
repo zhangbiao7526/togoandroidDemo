@@ -35,15 +35,21 @@
                		 android:label="返回"
                		 android:icon="@drawable/ic_launcher"
             	     android:theme="@style/actionBar_"/>
+           <!-- 首页 -->
 		   <activity android:name="com.example.togodemo.home.Home_moreshop_click"/>
+		   <!-- 用户 -->
            <activity android:name="com.example.togodemo.user.UserRegister"/>
            <activity android:name="com.example.togodemo.user.ForgotPassWord"></activity>
+           <!-- 个人中心 -->
            <activity android:name="com.example.selfcenter.self_shoucang"></activity>
            <activity android:name="com.example.selfcenter.self_waitinggoods"></activity>
            <activity android:name="com.example.selfcenter.self_allorders"></activity>
            <activity android:name="com.example.selfcenter.self_addressadministration"></activity>
            <activity android:name="com.example.selfcenter.self_callcenter"></activity>
            <activity android:name="com.example.selfcenter.self_browinghistory"></activity>
+           <!-- 分类 -->
+           <activity android:name="com.example.togodemo.classifyLayout.Classify_Activity_children"></activity>
+           <!-- 活动 -->
            <activity android:name="com.example.togodemo.business.Activity_Free"/>
       	   <activity android:name="com.example.togodemo.business.Activity_Minprice"/>
       	   <activity android:name="com.example.togodemo.business.Activity_SalesPromotion"/>
