@@ -89,8 +89,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <!-- qq授权需要注册该activity -->
+		<!-- qq授权需要注册该activity -->
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
@@ -104,6 +103,8 @@
                 <data android:scheme="tencent1101255276" />
             </intent-filter>
         </activity>
+        
+       
         <!-- 人人授权需要注册的activity -->
         <activity
             android:name="com.renn.rennsdk.oauth.OAuthActivity"

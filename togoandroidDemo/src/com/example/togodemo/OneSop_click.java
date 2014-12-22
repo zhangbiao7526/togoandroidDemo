@@ -182,7 +182,7 @@ public class OneSop_click extends ActionBarActivity {
 			whiteviewShareData.setDescription("兔购分享");
 			whiteviewShareData.setTitle("兔购分享");
 			whiteviewShareData.setText("通过兔购，你可以拥有更多，幸福，源于生活 ");
-			// whiteviewShareData.setTarget_url("http://youtui.mobi/");
+			whiteviewShareData.setTarget_url("http://youtui.mobi/");
 			whiteviewShareData.setImageUrl(VARIABLE.IMAGE_URL+"togo.jpg");
 			// shareData.setImagePath(Environment.getExternalStorageDirectory()+YoutuiConstants.FILE_SAVE_PATH+"demo.png");
 			YtTemplate whiteGridTemplate = new YtTemplate(this, YouTuiViewType.WHITE_GRID, true);
