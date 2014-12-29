@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical|center_horizontal"
+    android:background="@drawable/shop_success_dialog"
+    >
+
+    <RelativeLayout
+        android:layout_width="298dp"
+        android:layout_height="173dp"
+        android:paddingLeft="30dp"
+        android:paddingTop="50dp" >
+
+        <ImageView
+            android:id="@+id/dialog_title_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/tv" />
+
+        <TextView
+            android:id="@+id/tv_mul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView2"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_alignLeft="@+id/textView1"
+            android:text="TextView"
+            android:textColor="#272727" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialog_title_image"
+            android:layout_centerHorizontal="true"
+            android:text="共花费："
+            android:textColor="#FF0000" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/textView2"
+            android:text="购买成功"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+        
+    </RelativeLayout>
+   
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:gravity="bottom|center_horizontal"
+        android:paddingBottom="10dp">
+        <Button 
+            android:id="@+id/btn_return_home"
+            android:layout_alignParentLeft="true"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="返回首页"/>
+
+    </RelativeLayout>
+</LinearLayout>

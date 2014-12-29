@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/startbg" >
+
+    <TextView
+        android:id="@+id/kefuzhongxin2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/kefuzhongxin1"
+        android:layout_below="@+id/kefuzhongxin1"
+        android:layout_marginTop="17dp"
+        android:text="传真:560731"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/kefuzhongxin1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="49dp"
+        android:text="联系电话:  1879828787"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/kefuzhongxin3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/kefuzhongxin2"
+        android:layout_marginTop="16dp"
+        android:text="地址：苏州独墅湖吴中区文星广场"
+        android:textSize="20dp" />
+
+</RelativeLayout>

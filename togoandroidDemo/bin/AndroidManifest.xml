@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.togodemo"
+    android:installLocation="auto"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DELETE_PACKAGES" />
+    <!-- 检测网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 获取mac地址作为用户的备用唯一标识 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 获取用户手机的IMEI，用来唯一的标识用户。 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 缓存资源优先存入SDcard -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 允许应用程序联网 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 用于加载图片 -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+    <application
+        android:name="com.example.togodemo.myApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/logo_togo"
+        android:label="@string/app_name"
+        android:theme="@style/test" >
+
+        <!-- 友推渠道号，应用名(英文或拼音)+"_yt"，如：“jd_yt”，用于识别通过友推活动下载的应用，请正确填写，否则无法正确统计 -->
+        <meta-data
+            android:name="YOUTUI_CHANNEL"
+            android:value="youtui-share-demo_yt" >
+        </meta-data>
+
+        <activity
+            android:name="com.example.togodemo.StartPage"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.togodemo.Main_Activity" />
+        <activity android:name="com.example.togodemo.user.User_Login" />
+        <activity android:name="com.example.togodemo.aaa" />
+        <!-- 不能忘记样式，否则生成不了class -->
+        <activity
+            android:name="com.example.togodemo.OneSop_click"
+            android:label="返回"
+            android:theme="@style/actionBar_" />
+        <!-- 首页 -->
+        <activity android:name="com.example.togodemo.home.Home_moreshop_click" />
+        <!-- 用户 -->
+        <activity android:name="com.example.togodemo.user.UserRegister" />
+        <activity android:name="com.example.togodemo.user.ForgotPassWord" >
+        </activity>
+        <!-- 个人中心 -->
+        <activity android:name="com.example.selfcenter.self_shoucang" >
+        </activity>
+        <activity android:name="com.example.selfcenter.self_waitinggoods" >
+        </activity>
+        <activity android:name="com.example.selfcenter.self_allorders" >
+        </activity>
+        <activity android:name="com.example.selfcenter.self_addressadministration" >
+        </activity>
+        <activity android:name="com.example.selfcenter.self_callcenter" >
+        </activity>
+        <activity android:name="com.example.selfcenter.self_browinghistory" >
+        </activity>
+        <!-- 分类 -->
+        <activity android:name="com.example.togodemo.classifyLayout.Classify_Activity_children" >
+        </activity>
+        <!-- 分类 -->
+        <activity android:name="com.example.togodemo.classifyLayout.ClassifySearch" >
+        </activity>
+        <!-- 活动 -->
+        <activity android:name="com.example.togodemo.business.Business_moreshop_click" />
+        <!-- 单个商品购买 -->
+        <activity
+            android:name="com.example.togodemo.Shop_goods"
+            android:label="返回"
+            android:theme="@style/actionBar_" />
+        <!-- 购买成功页面 -->
+        <activity
+            android:name="com.example.togodemo.Shopgoods_successful"
+            android:theme="@style/MyDialog" />
+
+        <!-- 微信分享需要注册该activity -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent" >
+        </activity>
+        <!-- qq回调需要注册该activity -->
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- qq授权需要注册该activity -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 把 1101255276改成自己的appid -->
+                <data android:scheme="tencent1101255276" />
+            </intent-filter>
+        </activity>
+
+        <!-- 人人授权需要注册的activity -->
+        <activity
+            android:name="com.renn.rennsdk.oauth.OAuthActivity"
+            android:configChanges="orientation|navigation|keyboardHidden" />
+        <!-- 分享界面 -->
+        <activity
+            android:name="cn.bidaround.ytcore.activity.ShareActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <!-- 应用授权 activity -->
+        <activity
+            android:name="cn.bidaround.ytcore.login.AuthActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- 友推积分activity -->
+        <activity android:name="cn.bidaround.point.PointActivity" />
+        <activity
+            android:name="cn.bidaround.youtui_template.ScreenCapEditActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+    </application>
+
+</manifest>
