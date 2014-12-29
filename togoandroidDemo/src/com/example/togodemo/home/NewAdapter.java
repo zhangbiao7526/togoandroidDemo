@@ -1,10 +1,10 @@
 package com.example.togodemo.home;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import net.tsz.afinal.FinalBitmap;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,17 +23,17 @@ import com.example.togodemo.variable.VARIABLE;
 	 * @author Administrator
 	 *
 	 */
-	class NewAdapter extends BaseAdapter{
+	public class NewAdapter extends BaseAdapter{
 		private List<ShopInfo> data;
-		 private Home_moreshop_click hc;
+		 private Context hc;
 		 private FinalBitmap fm;
 		
-		 public NewAdapter(Home_moreshop_click h,List<ShopInfo> data,FinalBitmap fm) {
-			this.data=data;
+		 public <T> NewAdapter(Context h,List<ShopInfo> list_shopinfos,FinalBitmap fm) {
+			this.data=list_shopinfos;
 			this.hc=h;
 			this.fm=fm;
 		}
-		
+			
 
 		@Override
 		public int getCount() {
@@ -65,8 +65,10 @@ import com.example.togodemo.variable.VARIABLE;
 		 */
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
+			ShopInfo s = null;
 			//创建对象
-			ShopInfo s=data.get(position);
+			if(data!=null){
+			s=data.get(position);}
 			//缓存convertView
 			if(convertView==null){
 			LayoutInflater inflater=LayoutInflater.from(hc);

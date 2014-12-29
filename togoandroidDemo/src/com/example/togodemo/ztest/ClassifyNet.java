@@ -3,7 +3,6 @@ package com.example.togodemo.ztest;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.util.List;
 

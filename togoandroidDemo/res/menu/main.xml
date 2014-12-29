@@ -24,11 +24,5 @@
         android:title="@string/action_settings"
         app:showAsAction="always"
         />
-	<item
-        android:id="@+id/action_3"
-        android:icon="@drawable/la"
-        android:title="@string/action_settings"
-        app:showAsAction="ifRoom"
-        />
 
 </menu>

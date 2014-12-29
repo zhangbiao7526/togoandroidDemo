@@ -43,8 +43,8 @@
                 android:layout_height="210dp"
                 android:layout_weight="1.97"
                 layout="@layout/self_listview" />
-
-        </LinearLayout>
+		   
+             </LinearLayout>
   
    <LinearLayout  
         android:id="@+id/content1"  

@@ -1,11 +1,13 @@
 package com.example.togodemo;
 
 import java.util.List;
+import java.util.Map;
 
 import net.tsz.afinal.FinalBitmap;
 
-import com.example.togodemo.ztest.NetUtil1;
-import com.example.togodemo.ztest.shop;
+import com.example.togodemo.ishopcar.DemoAdapter;
+import com.example.togodemo.mode.UserShopCar;
+import com.example.togodemo.ztest.ShopCarNet;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,19 +16,41 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ShopcarFragment extends Fragment implements
+public class ShopcarFragment extends Fragment implements OnClickListener,
 		android.widget.AdapterView.OnItemClickListener {
 
-	private NewAdapter newadapter;
+	/**
+	 * 确定按钮
+	 */
+	private ViewGroup btnAdd = null;
+	/**
+	 * 选择所有
+	 */
+	private Button btnSelectAll = null;
+
+	/**
+	 * 清除所有
+	 */
+	private Button btnDelete = null;
+
+	/**
+	 * ListView列表
+	 */
+	private ListView lvListView = null;
+
+	/**
+	 * 适配对象
+	 */
+	private DemoAdapter adpAdapter = null,adp=null;
+
 	private FinalBitmap bm;
-	private LayoutInflater shopcar_inflater;
-	TextView tv_shopname;
+	private TextView tv_shopname, tv_num;
+	private UserShopCar shopcar;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -42,120 +66,187 @@ public class ShopcarFragment extends Fragment implements
 				container, false);
 		// 要创建Final对象
 		bm = FinalBitmap.create(getActivity());
-		// 创建Fragment上下文
-		shopcar_inflater = getActivity().getLayoutInflater();
-		ListView listview = (ListView) settingLayout
-				.findViewById(R.id.lv_shopcar);
-		// 新建一个类，用于异步处理,将listview传过去
-		newadapter = new NewAdapter();
-		NetUtil1.getDataFromServer(getActivity(), listview, newadapter);
-		listview.setOnItemClickListener(this);
 
+		// 初始化视图
+		initView(settingLayout);
+
+		// 初始化控件
+		initData(settingLayout);
+		
 		return settingLayout;
 	}
 
-	public class NewAdapter extends BaseAdapter {
-		private List<shop> data;
-
-		// 绑定数据
-		public List<shop> getData() {
-			return data;
-		}
-
-		public void setData(List<shop> data) {
-			this.data = data;
-		}
-
-		public NewAdapter() {
-			super();
-		}
-
-		public NewAdapter(List<shop> data) {
-			this.data = data;
-		}
-
-		/**
-		 * 统计item数量,说明listview有多少个条目
-		 */
-		@Override
-		public int getCount() {
-			// TODO Auto-generated method stub
-			return data.size();
-		}
-
-		/**
-		 * 说明position指定的条目关联的数据对象 position条目id是固定的。getItem无法绑定条目到指定的数据对象
-		 */
-		@Override
-		public Object getItem(int position) {
-			// 这里不能缺，否则会找不到对象
-			return data.get(position);
-		}
-
-		/**
-		 * 条目的id
-		 */
-		@Override
-		public long getItemId(int position) {
-			// TODO Auto-generated method stub
-			return position;
-		}
-
-		/**
-		 * View convertView作为缓存的对象 说明每个条目的布局 convertView 缓存的条目 parent 就是listView
-		 * 返回值作为listView的一个条目
-		 */
-		@Override
-		public View getView(final int position, View convertView,
-				ViewGroup parent) {
-			// 创建对象
-			shop s = data.get(position);
-			// 缓存convertView
-			if (convertView == null) {
-				// R.layout.simpleitem 布局文件
-				convertView = shopcar_inflater.inflate(R.layout.shopcat_item,
-						null);
+	public  void inittotal() {
+		myApplication my = (myApplication) getActivity().getApplication();
+		if (my.getDemoadapter() != null) {
+			adpAdapter=my.getDemoadapter();
+			int i=adpAdapter.getMoney();
+//			Toast.makeText(getActivity(), "价钱："+i, Toast.LENGTH_SHORT).show();
+			tv_num.setText(""+i);
 			}
-			// 要从convertView 找对象，否则回报空指针
-			ImageView iv_shop = (ImageView) convertView
-					.findViewById(R.id.iv_item_shopcarimg);
-			tv_shopname = (TextView) convertView.findViewById(R.id.textView2);
-			TextView tv_shopsome = (TextView) convertView
-					.findViewById(R.id.textView3);
+	}
 
-			// 获取图片要注意，不要写成setId
-			// setText不能添加纯数字，要在数字前面加字符串，比如加个数量
-			bm.display(iv_shop, s.getShoppic());
-			// iv_shop.setImageResource(s.getShoppic());
-			tv_shopname.setText(s.getShopname());
-			tv_shopsome.setText(s.getShopsomething());
-			tv_shopname.setOnClickListener(new OnClickListener() {
+	/**
+	 * 初始化控件
+	 * 
+	 * @param settingLayout
+	 */
+	private void initView(View settingLayout) {
 
-				@Override
-				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					Toast.makeText(getActivity(), "ff" + position,
-							Toast.LENGTH_SHORT).show();
+		// btnCancle = (ViewGroup) settingLayout.findViewById(R.id.btnCancle);
+		// btnCancle.setOnClickListener(this);
+		//
+		btnAdd = (ViewGroup) settingLayout.findViewById(R.id.btnAdd);
+		btnAdd.setOnClickListener(this);
+
+		btnDelete = (Button) settingLayout.findViewById(R.id.btnDelete);
+		btnDelete.setOnClickListener(this);
+
+		btnSelectAll = (Button) settingLayout.findViewById(R.id.btnSelectAll);
+		btnSelectAll.setOnClickListener(this);
+
+		lvListView = (ListView) settingLayout.findViewById(R.id.lvListView);
+		lvListView.setOnItemClickListener(this);
+
+		tv_num = (TextView) settingLayout.findViewById(R.id.tv_num);
+
+	}
+
+	/**
+	 * 初始化视图
+	 */
+	private void initData(View settingLayout) {
+
+		myApplication my = (myApplication) getActivity().getApplication();
+		String username = my.getUser_name();
+		ShopCarNet.selectShopcar(getActivity(), username, lvListView,
+				adpAdapter, bm,my);
+
+	}
+
+	/**
+	 * 按钮点击事件
+	 */
+	@Override
+	public void onClick(View v) {
+
+		/*
+		 * 当点击删除的时候
+		 */
+		if (v == btnDelete) {
+			myApplication my = (myApplication) getActivity().getApplication();
+			if (my.getDemoadapter() != null) {
+				adpAdapter=my.getDemoadapter();
+				/*
+				 * 删除算法最复杂,拿到checkBox选择寄存map
+				 */
+				Map<Integer, Boolean> map = adpAdapter.getCheckMap();
+
+				// 获取当前的数据数量
+				int count = adpAdapter.getCount();
+				// 进行遍历
+				for (int i = 0; i < count; i++) {
+
+					// 因为List的特性,删除了2个item,则3变成2,所以这里要进行这样的换算,才能拿到删除后真正的position
+					int position = i - (count - adpAdapter.getCount());
+
+					if (map.get(i) != null && map.get(i)) {
+
+						UserShopCar bean = (UserShopCar) adpAdapter
+								.getItem(position);
+
+						if (bean.isCanRemove()) {
+							
+							int shopid=adpAdapter.getShopid().get(i);
+							
+							adpAdapter.getCheckMap().remove(i);
+							adpAdapter.remove(position);
+							
+							String username=my.getUser_name();
+//							Toast.makeText(getActivity(), ""+shopid, Toast.LENGTH_SHORT	).show();
+							
+							ShopCarNet.deleteShopcar(getActivity(),shopid,username);
+						} else {
+							map.put(position, false);
+						}
+
+					}
 				}
-			});
-			return convertView;
+				adpAdapter.notifyDataSetChanged();
+//				ShopCarNet.deleteShopCar();
+			}
+		}
+
+		/*
+		 * 当点击全选的时候
+		 */
+		if (v == btnSelectAll) {
+
+			if (btnSelectAll.getText().toString().trim().equals("全选")) {
+
+				myApplication my = (myApplication) getActivity()
+						.getApplication();
+				if (my.getDemoadapter() != null) {
+					adpAdapter = my.getDemoadapter();
+
+					// 所有项目全部选中
+					adpAdapter.configCheckMap(true);
+
+					adpAdapter.notifyDataSetChanged();
+
+					// 获取当前的数据数量
+					int count = adpAdapter.getCount();
+					int num = 0;
+					int total = 0;
+					// 进行遍历
+					for (int i = 0; i < count; i++) {
+						shopcar = (UserShopCar) adpAdapter.getItem(i);
+
+						num = num + shopcar.getF_i_Caddnum();
+						int nums = shopcar.getF_i_Caddnum();
+						total = total
+								+ (int) (nums * shopcar.getShopInfo()
+										.getF_d_Ssprice());
+						tv_num.setText("商品总价：" + total + "元");
+						// Toast.makeText(getActivity(),
+						// shopcar.getShopInfo().toString(),
+						// Toast.LENGTH_SHORT).show();
+					}
+					btnSelectAll.setText("全不选");
+				}
+			} else {
+
+				// 所有项目全部不选中
+				adpAdapter.configCheckMap(false);
+
+				adpAdapter.notifyDataSetChanged();
+
+				tv_num.setText("");
+
+				btnSelectAll.setText("全选");
+			}
+
+		}
+		if (v == btnAdd) {
+			
+			inittotal();
+			
 		}
 
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> parent, View view,
+	public void onItemClick(AdapterView<?> parent, View itemLayout,
 			final int position, long id) {
-		shop s = new shop();
-		myApplication M = (myApplication) getActivity().getApplication();
-		List<shop> list = M.getList_shop();
-		s = list.get(position);
-		String a = s.getShopname();
-		String b = s.getShoppic();
-		String c = s.getShopsomething();
-		Toast.makeText(getActivity(), "a=" + a + "b=" + b + "c=" + c,
-				Toast.LENGTH_SHORT).show();
 
+		// if (itemLayout.getTag() instanceof ViewHolder) {
+		//
+		// ViewHolder holder = (ViewHolder) itemLayout.getTag();
+		//
+		// // 会自动出发CheckBox的checked事件
+		// holder.cbCheck.toggle();
+		//
+		// }
 	}
 
 }

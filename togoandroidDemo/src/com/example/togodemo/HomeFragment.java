@@ -8,6 +8,7 @@ import com.example.togodemo.home.Home_moreshop_click;
 import com.example.togodemo.mode.ShopInfo;
 import com.example.togodemo.variable.VARIABLE;
 import com.example.togodemo.ztest.HomeNet;
+import com.example.togodemo.ztest.shop_NetUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -114,7 +115,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 				iv_HOMEFragment_good2, iv_HOMEFragment_good3 };
 		// 销量最多集合：
 		list_buymore = (ArrayList<ShopInfo>) my.getList_buymoreshop();
-		
+		//一进首页就去后台读取数据
 		if (my.list_buymoreshop == null) {
 			// 首页的图片后台处理,将所有字段读取出来，当某个页面需要用到时，在listview在进行区分，用fina框架进行读取图片
 			HomeNet.Buy_Moreshop(getActivity(), buy_moreshop,fm);
@@ -133,7 +134,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		if (my.list_goodshop == null) {
 			// 首页的图片后台处理,将所有字段读取出来，当某个页面需要用到时，在listview在进行区分，用fina框架进行读取图片
 			HomeNet.Good_Moreshop(getActivity(), good_moreshop,fm);
-			System.out.println("全局缓存没有值");
+			System.out.println("全局缓存没有值");  
 		} else {
 			for (int i = 0; i < 3; i++) {
 				fm.display(good_moreshop[i], VARIABLE.IMAGE_URL+my.getList_goodshop().get(i).getF_c_Simagpath());
@@ -189,15 +190,17 @@ public class HomeFragment extends Fragment implements OnClickListener {
 						.setOnClickListener(new OnClickListener() {
 							@Override
 							public void onClick(View v) { // 在这获取用户单击了哪个图片，然后将这个图片的名字传递到另外一个activity，在那个activity进行线程处理
-								Toast.makeText(getActivity(),
-										arg0 + "img=" + imgString[arg0], 1000)
-										.show();
-								Intent in = new Intent();
-								in.putExtra("img_name", imgString[arg0]);
-								in.putExtra("method", "home_viewpg");
-								System.out.println(imgString[arg0]);
-								in.setClass(getActivity(), OneSop_click.class);
-								getActivity().startActivity(in);
+//								Toast.makeText(getActivity(),
+//										arg0 + "img=" + imgString[arg0], 1000)
+//										.show();
+//								Intent in = new Intent();
+//								in.putExtra("img_name", imgString[arg0]);
+//								in.putExtra("method", "home_viewpg");
+//								System.out.println(imgString[arg0]);
+//								in.setClass(getActivity(), OneSop_click.class);
+//								getActivity().startActivity(in);
+//								Toast.makeText(getActivity(), imgString[arg0], duration)
+								shop_NetUtil.getHome_ViewPage(getActivity(),imgString[arg0],  fm);	
 							}
 						});
 			}
@@ -235,7 +238,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 					mGroup.check(radioButtonID[mCurrentItem]);
 
 				}
-				pager.postDelayed(mPagerAction, 2500);
+				pager.postDelayed(mPagerAction, 5000);
 			}
 
 		};
@@ -308,9 +311,10 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		Intent intent=new Intent();
 		ShopInfo shop;
 		if(my.getList_goodshop()!=null){
-			intent.putExtra("method", "home_buymore");
+			intent.putExtra("method", "home_buymore");	
 			Bundle bundle = new Bundle();	
 			shop=my.getList_goodshop().get(i);
+//			Toast.makeText(getActivity(), shop.toString(), 1000).show();
 			bundle.putParcelable("buy_moreshop", shop);
 			intent.setClass(this.getActivity(), OneSop_click.class);
 			intent.putExtras(bundle);

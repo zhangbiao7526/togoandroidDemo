@@ -15,7 +15,9 @@ public class ShopInfo implements Parcelable {
 	String f_c_Saddress;
 	String f_c_Sdescription;
 	int f_c_Sactivity;
-
+	Business business;
+	Favorites favorites;
+	
 	public Integer getF_i_Sid() {
 		return f_i_Sid;
 	}
@@ -96,6 +98,22 @@ public class ShopInfo implements Parcelable {
 		this.f_c_Sactivity = f_c_Sactivity;
 	}
 
+	public Business getBusiness() {
+		return business;
+	}
+
+	public void setBusiness(Business business) {
+		this.business = business;
+	}
+
+	public Favorites getFavorites() {
+		return favorites;
+	}
+
+	public void setFavorites(Favorites favorites) {
+		this.favorites = favorites;
+	}
+
 	public ShopInfo(Integer f_i_Sid, String f_c_Sname, double f_d_Ssprice,
 			Integer f_i_Snum, Integer f_i_Stotal, String f_c_Simagpath,
 			String f_c_Stype, String f_c_Saddress, String f_c_Sdescription,
@@ -135,6 +153,7 @@ public class ShopInfo implements Parcelable {
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
 		
+		dest.writeInt(f_i_Sid);
 		dest.writeString(f_c_Sname);
 		dest.writeDouble(f_d_Ssprice);
 		dest.writeInt(f_i_Snum);
@@ -145,6 +164,7 @@ public class ShopInfo implements Parcelable {
 	}
 
 	public ShopInfo(Parcel source) {
+		f_i_Sid = source.readInt();
 		f_c_Sname = source.readString();
 		f_d_Ssprice = source.readDouble();
 		f_i_Snum = source.readInt();

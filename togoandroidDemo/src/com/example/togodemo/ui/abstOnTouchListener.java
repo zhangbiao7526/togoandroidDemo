@@ -1,5 +1,7 @@
 package com.example.togodemo.ui;
 
+import com.example.selfcenter.self_allorders;
+import com.example.selfcenter.self_shoucang;
 import com.example.togodemo.R;
 import net.tsz.afinal.annotation.view.ViewInject;
 
@@ -203,6 +205,7 @@ public abstract class abstOnTouchListener extends FragmentActivity implements
 	 */
 	protected int pageID;
 	protected boolean wantToClose;
+	protected myApplication my;
 
 	/**
 	 * 初始化一些关键性数据。 包括获取屏幕的宽度， 给content布局重新设置宽度， 给menu布局重新设置宽度和偏移距离等。
@@ -254,7 +257,7 @@ public abstract class abstOnTouchListener extends FragmentActivity implements
 		 * 
 		 * getAction()获得用户触摸屏幕时的返回值
 		 */
-		myApplication my = (myApplication) this.getApplication();
+		my = (myApplication) this.getApplication();
 		if (my.isUSER_LOGIN()) {
 			switch (event.getAction()) {
 			case MotionEvent.ACTION_DOWN:
@@ -298,7 +301,6 @@ public abstract class abstOnTouchListener extends FragmentActivity implements
 				xUp = event.getRawX();
 				if (wantToShowMenu()) {
 					if (shouldScrollToMenu()) {
-						right.setText(R.string.title_myhome);
 						pageID = 0;
 						scrollToMenu();
 
@@ -534,6 +536,26 @@ public abstract class abstOnTouchListener extends FragmentActivity implements
 				setTabSelection(3);
 			}
 			break;
+		case R.id.btn_close:
+			//传个Intent值过去
+			myApplication my1 = (myApplication) this.getApplication();
+			my1.setUSER_LOGIN(false);
+			Intent _user_close=new Intent(this,User_Login.class);
+			_user_close.putExtra("user_close", "user_close");
+			startActivity(_user_close);
+			break;
+			//12/26
+		case R.id.tv_allorders:
+			Intent in=new Intent(this,self_allorders.class);
+			startActivity(in);
+			break;
+		// 12/26
+		case R.id.tv_baobeishoucang:
+
+			Intent shoucang = new Intent(this, self_shoucang.class);
+			startActivity(shoucang);
+			break;
+
 		default:
 			break;
 		}

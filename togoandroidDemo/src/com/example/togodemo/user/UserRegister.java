@@ -112,14 +112,15 @@ public class UserRegister extends Activity {
 							super.onSuccess(t);
 							String t_ = (String) t;
 							if ("true".equals(t_)) {
-								Toast.makeText(
-										UserRegister.this,
-										"注册成功，账号：" + t.toString() + ","
-												+ username + "密码：" + password,
-										Toast.LENGTH_LONG).show();
+//								Toast.makeText(
+//										UserRegister.this,
+//										"注册成功，账号：" + t.toString() + ","
+//												+ username + "密码：" + password,
+//										Toast.LENGTH_LONG).show();
 								myApplication my = (myApplication) UserRegister.this
 										.getApplication();
 								my.setUSER_LOGIN(true);
+								my.setUser_name(username);
 								Intent in = new Intent(UserRegister.this,
 										Main_Activity.class);
 								startActivity(in);

@@ -7,8 +7,8 @@ public class VARIABLE {
 	
 	
 	//地址：
-	public static final String path = "10.30.6.92:8080";
-//	public static final String path = "172.27.35.1:8080";
+//	public static final String path = "10.30.6.92:8080";
+	public static final String path = "172.27.35.1:8080";
 	//public static final String path = "10.30.6.45:8080";
 	/**
 	 * User_Login.java
@@ -34,11 +34,11 @@ public class VARIABLE {
 	public static final String HOMEVIPAGER_URI = IMAGE_URL + "1.jpg";
 	public static final String HOMEVIPAGER_URI2 = IMAGE_URL + "12.jpg";
 	public static final String HOMEVIPAGER_URI3 = IMAGE_URL
-			+ "P40916-163947.jpg";
+			+ "15.jpg";
 	public static final String HOMEVIPAGER_URI4 = IMAGE_URL
-			+ "P40916-164247.jpg";
+			+ "19.jpg";
 	public static final String HOMEVIPAGER_URI5 = IMAGE_URL
-			+ "001002007_208704_2.jpg";
+			+ "2.jpg";
 	// BusinessFragment.java
 	public static final String HOMEVIPAGER_URI6 = IMAGE_URL
 			+ "minprice_pic1.jpg";
@@ -47,4 +47,14 @@ public class VARIABLE {
 //			+ "/togoProjectDemo/servlet/BusinessNet";
 	public static final String HOMEVIPAGER_URI7 = "http://" + path
 			+ "/togoProjectDemo/servlet/android_shop";
+	
+	public static final String HOMEVIPAGER_URI8="http://"+path+
+			"/togoProjectDemo/servlet/SearchServlet";
+	
+    public static final String HOMEVIPAGER_URI9="http://"+path+
+			"/togoProjectDemo/servlet/CollectServlet";
+    
+    public static final String HOMEVIPAGER_URI10="http://"+path+
+			"/togoProjectDemo/servlet/AddFavoriteServlet";
+
 }

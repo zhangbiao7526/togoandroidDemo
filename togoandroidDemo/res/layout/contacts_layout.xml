@@ -1,64 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="match_parent" 
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="搜索" />
+        
+    </LinearLayout>
+    
+<LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
 
     <LinearLayout
         android:id="@+id/layout_classify_left_linear"
         android:layout_width="90dp"
         android:layout_height="match_parent"
-      
         android:orientation="vertical" >
 
-         <Button
-             android:id="@+id/btn_classify_left_linear1"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="@string/classify_cloth"
-             />
+        <Button
+            android:id="@+id/btn_classify_left_linear1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/classify_cloth" />
 
-         <Button
-             android:id="@+id/btn_classify_left_linear2"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="@string/classify_dayuse" 
-             />
+        <Button
+            android:id="@+id/btn_classify_left_linear2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/classify_dayuse" />
 
-         <Button
-             android:id="@+id/btn_classify_left_linear3"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="@string/classify_phone" 
-            />
-         
-          <Button
-        android:id="@+id/btn_classify_left_linear4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/classify_jiaju" 
-        />
-           <Button
-        android:id="@+id/btn_classify_left_linear5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/classify_lingshi"
-         />
+        <Button
+            android:id="@+id/btn_classify_left_linear3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/classify_phone" />
 
+        <Button
+            android:id="@+id/btn_classify_left_linear4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/classify_jiaju" />
+
+        <Button
+            android:id="@+id/btn_classify_left_linear5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/classify_lingshi" />
     </LinearLayout>
-	<LinearLayout
+
+    <LinearLayout
         android:id="@+id/layout_classify_right_linear"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
-		
-
-		<FrameLayout
-		    android:id="@+id/fg_classify_right_fragment"
-		    android:layout_width="match_parent"
-		    android:layout_height="match_parent" >
-		</FrameLayout>
+        <FrameLayout
+            android:id="@+id/fg_classify_right_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </FrameLayout>
+    </LinearLayout>
 
 </LinearLayout>
 </LinearLayout>

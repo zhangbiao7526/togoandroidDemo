@@ -17,7 +17,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class ClassifyFragment_right1 extends Fragment {
@@ -57,8 +56,8 @@ public class ClassifyFragment_right1 extends Fragment {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				Toast.makeText(getActivity(), "你按下 " + imgText[position],
-						Toast.LENGTH_SHORT).show();
+//				Toast.makeText(getActivity(), "你按下 " + imgText[position],
+//						Toast.LENGTH_SHORT).show();
 				Intent in=new Intent();
 				in.putExtra("fenlei", imgText[position]);
 				in.setClass(getActivity(), Classify_Activity_children.class);

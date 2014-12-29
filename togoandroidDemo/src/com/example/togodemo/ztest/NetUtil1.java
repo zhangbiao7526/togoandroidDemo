@@ -11,8 +11,8 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import com.example.togodemo.ShopcarFragment.NewAdapter;
 import com.example.togodemo.myApplication;
+import com.example.togodemo.home.NewAdapter;
 import com.example.togodemo.variable.VARIABLE;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -68,7 +68,7 @@ public class NetUtil1 {
 			@Override
 			protected void onPostExecute(List<shop> result) {
 				if (result != null) {
-					newadapter.setData(result);
+//					newadapter.setData(result);
 					myApplication M = (myApplication) fragmentActivity
 							.getApplication();
 					M.setList_shop(result);

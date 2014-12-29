@@ -7,8 +7,8 @@
     <string name="title_business">活动</string>
     <string name="title_shopcar">购物车</string>
 	<!-- 主界面 -->
-    <string name="app_name">TogoDemo</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">兔购</string>
+    <string name="action_settings">收藏</string>
     <string name="hello_world">Hello world!</string>
     <string name="tv_first">首页</string>
     <string name="tv_second">分类</string>
@@ -24,6 +24,7 @@
     <string name="tv_addressadministration">地址管理</string>
     <string name="tv_callcenter">客服中心</string>
     <string name="tv_browinghistory">浏览记录</string>
+    <string name="tv_close">退出登录</string>
     
     
     <!-- 用户注册 -->
@@ -124,4 +125,9 @@
        <string name ="classify_jiaju">家纺家具</string>
        <string name ="classify_lingshi">美味零食</string>
   
+       <string name="tv_arrive_address">配送地址:</string>
+       <string name="tv_arrive_kuaidi">配送方式:</string>
+       <string name="tv_arrive_phone">手机号码:</string>
+       <string name="tv_shop_buyquantity">购买数量</string>
+       
 </resources>

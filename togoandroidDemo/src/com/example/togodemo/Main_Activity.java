@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,7 +24,8 @@ import android.widget.Toast;
  * @author guolin
  */
 public class Main_Activity extends abstOnTouchListener {
-
+	TextView tv_geren,tv_shoucang,tv_waitinggoods,tv_allorders,
+			 tv_addressadministration,tv_callcenter,tv_browinghistory,btn_close;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// 自定义标题栏
@@ -36,13 +38,15 @@ public class Main_Activity extends abstOnTouchListener {
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
 				R.layout.layout_title);
 		// 找到个人中心textview
-		TextView tv_shoucang = (TextView) findViewById(R.id.tv_baobeishoucang);
-		TextView tv_waitinggoods = (TextView) findViewById(R.id.tv_waitinggoods);
-		TextView tv_allorders = (TextView) findViewById(R.id.tv_allorders);
-		TextView tv_addressadministration = (TextView) findViewById(R.id.tv_addressadministration);
-		TextView tv_callcenter = (TextView) findViewById(R.id.tv_callcenter);
-		TextView tv_browinghistory = (TextView) findViewById(R.id.tv_browinghistory);
-
+		//12/25
+		 tv_geren=(TextView) findViewById(R.id.textView1);
+		 tv_shoucang = (TextView) findViewById(R.id.tv_baobeishoucang);
+		 tv_waitinggoods = (TextView) findViewById(R.id.tv_waitinggoods);
+		 tv_allorders = (TextView) findViewById(R.id.tv_allorders);
+		 tv_addressadministration = (TextView) findViewById(R.id.tv_addressadministration);
+		 tv_callcenter = (TextView) findViewById(R.id.tv_callcenter);
+		 tv_browinghistory = (TextView) findViewById(R.id.tv_browinghistory);
+		 Button btn_close=(Button) findViewById(R.id.btn_close);
 		// 单击事件
 		tv_shoucang.setClickable(true);
 		tv_waitinggoods.setClickable(true);
@@ -64,6 +68,7 @@ public class Main_Activity extends abstOnTouchListener {
 		tv_addressadministration.setOnClickListener(this);
 		tv_callcenter.setOnClickListener(this);
 		tv_browinghistory.setOnClickListener(this);
+		btn_close.setOnClickListener(this);
 
 		// 初始化布局元素
 		initViews();
@@ -146,6 +151,8 @@ public class Main_Activity extends abstOnTouchListener {
 		if (flag == 0 && my.isUSER_LOGIN()) {
 			pageID = 0;
 			scrollToMenu();
+			//12/25
+			tv_geren.setText("个人中心,"+"账号："+my.getUser_name()+"收货地址："+my.getUser_address());
 		} else if (!my.isUSER_LOGIN()) {
 			Intent in = new Intent(Main_Activity.this, User_Login.class);
 			startActivity(in);

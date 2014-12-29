@@ -6,6 +6,7 @@ import net.tsz.afinal.FinalBitmap;
 
 import com.example.togodemo.OneSop_click;
 import com.example.togodemo.R;
+import com.example.togodemo.myApplication;
 import com.example.togodemo.mode.ShopInfo;
 import com.example.togodemo.variable.VARIABLE;
 import com.example.togodemo.ztest.ClassifyNet;
@@ -35,7 +36,7 @@ public class Classify_Activity_children extends Activity implements android.widg
 	private FinalBitmap fm;
 	private ListView find_class_list;
 	private List<ShopInfo> data;
-	
+	public myApplication my;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -44,13 +45,14 @@ public class Classify_Activity_children extends Activity implements android.widg
 		find_class_list=(ListView) findViewById(R.id.shop_listview);
 		find_class_list.setOnItemClickListener(this);
 		fm = FinalBitmap.create(this);
+		my=(myApplication) this.getApplication();
 		
 		Intent in=super.getIntent();
 		String fenlei=in.getStringExtra("fenlei");
 		newadapter = new NewAdapter();
 		ClassifyNet.Find_classify(this, fenlei, find_class_list, newadapter);
 		
-		Toast.makeText(this, "子listView"+fenlei, Toast.LENGTH_SHORT).show();
+//		Toast.makeText(this, "子listView"+fenlei, Toast.LENGTH_SHORT).show();
 		
 	}
 	
@@ -140,10 +142,24 @@ public class Classify_Activity_children extends Activity implements android.widg
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			ShopInfo shop=(ShopInfo) parent.getItemAtPosition(position);
-//			Toast.makeText(this, shop.toString(), Toast.LENGTH_SHORT).show();
-			Intent in=new Intent(Classify_Activity_children.this,OneSop_click.class);
-			startActivity(in);
+				// TODO Auto-generated method stub
+				Intent intent=new Intent(Classify_Activity_children.this,OneSop_click.class);
+				//如果全局缓存不为空
+				if(my.getList_buymoreshop()!=null){
+				intent.putExtra("method", "home_buymore");
+				Bundle bundle = new Bundle();
+				ShopInfo shop=(ShopInfo) parent.getItemAtPosition(position);
+				bundle.putParcelable("buy_moreshop", shop);
+				//Toast.makeText(this, shop.toString(), Toast.LENGTH_SHORT).show();
+//				intent.setClass(Classify_Activity_children.this, OneSop_click.class);
+				intent.putExtras(bundle);
+				startActivity(intent);
+				//getActivity().startActivity(intent);
+				}else{
+					Toast.makeText(Classify_Activity_children.this, "未联入后台", Toast.LENGTH_LONG).show();
+					intent.setClass(Classify_Activity_children.this, OneSop_click.class);
+					startActivity(intent);
+				}
 		}
 
 }

@@ -29,7 +29,7 @@
                     android:shrinkColumns="0"
                     android:stretchColumns="0" >
  
-                    <TableRow
+                     <TableRow
                         android:id="@+id/more_page_row1"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
  
                        
                     </TableRow>
- 
+
                     <TableRow
                         android:id="@+id/more_page_row2"
                         android:layout_width="wrap_content"
@@ -156,7 +156,7 @@
                              android:textSize="16.0sp" />
                        
                     </TableRow>
-
+ 
                      <TableRow
                          android:id="@+id/more_page_row6"
                          android:layout_width="wrap_content"
@@ -182,8 +182,31 @@
  
                        
                     </TableRow>
+                    
+                    <TableRow
+                         android:id="@+id/more_page_row6"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:background="@drawable/sview02"
+                         >
+ 
+                        <Button
+                            android:id="@+id/btn_close"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:gravity="center_vertical"
+                            android:includeFontPadding="false"
+                            android:text="退出登录"
+                            android:textColor="#ff333333"
+                            android:textSize="16.0sp" 
+                            />
+ 
+                       
+                    </TableRow>
                 </TableLayout>
        </LinearLayout>
        </LinearLayout>
     </ScrollView>
+    
+ 	
 </RelativeLayout>

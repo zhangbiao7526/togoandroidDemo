@@ -5,6 +5,7 @@ import com.example.togodemo.classifyLayout.ClassifyFragment_right2;
 import com.example.togodemo.classifyLayout.ClassifyFragment_right3;
 import com.example.togodemo.classifyLayout.ClassifyFragment_right4;
 import com.example.togodemo.classifyLayout.ClassifyFragment_right5;
+import com.example.togodemo.ztest.SearchNet;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class ClassifyFragment extends Fragment implements OnClickListener {
 
@@ -27,12 +30,14 @@ public class ClassifyFragment extends Fragment implements OnClickListener {
 	private ClassifyFragment_right4 fg_classify_right4;
 	private ClassifyFragment_right5 fg_classify_right5;
 	private FragmentManager fm;
+	private EditText et_search;
+	private Button btn_search;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		// 获得Fragment管理器
+		//开始事物
 		fm = getChildFragmentManager();
 		setTabSelection(0);
 	}
@@ -53,25 +58,28 @@ public class ClassifyFragment extends Fragment implements OnClickListener {
 				.findViewById(R.id.btn_classify_left_linear4);
 		btn_classify_5 = (Button) contactsLayout
 				.findViewById(R.id.btn_classify_left_linear5);
+		et_search=(EditText)contactsLayout.findViewById(R.id.et_search);
+		btn_search=(Button)contactsLayout.findViewById(R.id.btn_search);
 
 		btn_classify_1.setOnClickListener(this);
 		btn_classify_2.setOnClickListener(this);
 		btn_classify_3.setOnClickListener(this);
 		btn_classify_4.setOnClickListener(this);
 		btn_classify_5.setOnClickListener(this);
+		btn_search.setOnClickListener(this);
 		return contactsLayout;
 	}
 
 	@Override
 	public void onClick(View v) {
-		// 开始事物
+		// 寮€濮嬩簨鐗?
 		FragmentTransaction tran = fm.beginTransaction();
 		int id = v.getId();
 		switch (id) {
 		case R.id.btn_classify_left_linear1:
-			// 因为当前的activity不是真正的activity，所以不能用常规的界面跳转，
-			// 要用setClass来跳转，并且当前类也不能用this来表示，要用getActivity（）
-			// 最后要getActivity().startActivity(i);执行跳转
+			// 鍥犱负褰撳墠鐨刟ctivity涓嶆槸鐪熸鐨刟ctivity锛屾墍浠ヤ笉鑳界敤甯歌鐨勭晫闈㈣烦杞紝
+			// 瑕佺敤setClass鏉ヨ烦杞紝骞朵笖褰撳墠绫讳篃涓嶈兘鐢╰his鏉ヨ〃绀猴紝瑕佺敤getActivity锛堬級
+			// 鏈€鍚庤getActivity().startActivity(i);鎵ц璺宠浆
 			// Intent i=new Intent();
 			// i.setClass(getActivity(), aaa.class);
 			// getActivity().startActivity(i);
@@ -94,6 +102,12 @@ public class ClassifyFragment extends Fragment implements OnClickListener {
 		case R.id.btn_classify_left_linear5:
 			fg_classify_right5 = new ClassifyFragment_right5();
 			tran.replace(R.id.fg_classify_right_fragment, fg_classify_right5);
+			break;
+			//1226
+		case R.id.btn_search:
+			String edittext=et_search.getText().toString();
+			Toast.makeText(getActivity(), edittext, Toast.LENGTH_LONG).show();
+			SearchNet.getDataBySearch(getActivity(),edittext);
 			break;
 		}
 		tran.commit();

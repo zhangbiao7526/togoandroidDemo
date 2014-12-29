@@ -1,5 +1,6 @@
 package com.example.togodemo.user;
 
+import com.example.togodemo.Main_Activity;
 import com.example.togodemo.R;
 import java.util.HashMap;
 
@@ -7,11 +8,12 @@ import net.tsz.afinal.FinalActivity;
 
 import com.example.togodemo.myApplication;
 import com.example.togodemo.mode.User;
-import com.example.togodemo.udao.biz.UserManagers;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -22,13 +24,10 @@ import android.widget.Toast;
 @SuppressLint("HandlerLeak")
 public class User_Login extends FinalActivity implements OnClickListener {
 
-	private myApplication My_Application = (myApplication) this
-			.getApplication();
 	private Button btn_login, btn_calloff;
 	private EditText edt_login_name, edt_login_password;
 	private TextView tv_login_register, tv_login_forget;
 	public User user = null;
-	public UserManagers userManagers = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +51,7 @@ public class User_Login extends FinalActivity implements OnClickListener {
 
 		myApplication my = (myApplication) User_Login.this.getApplication();
 	}
-
+	
 	@Override
 	public void onClick(View v) {
 		HashMap<String, String> map = new HashMap<String, String>();
@@ -68,14 +67,29 @@ public class User_Login extends FinalActivity implements OnClickListener {
 					|| edt_login_password.getText().toString() == null) {
 				Toast.makeText(this, "密码不能为空", Toast.LENGTH_SHORT).show();
 			}
-			NetUtil.uploadDataByGetLogin(User_Login.this, map);
+//			myApplication my=(myApplication) this.getApplication();
+//			my.setUser_name(edt_login_name.getText().toString().trim());
+//			Toast.makeText(this, my.getUser_name(), Toast.LENGTH_SHORT).show();
+
+			else{
+			//判断用户是否存在
+			NetUtil.uploadDataByGetLogin(User_Login.this, map,edt_login_name.getText().toString().trim());
+			}
+			//12/25 用户登录就去后台查找有没有设置地址
+//			NetUtil.select_Useraddress(User_Login.this,edt_login_name.getText().toString().trim());
 			break;
 		case R.id.tv_login_forget:
 			Intent in1 = new Intent(this, ForgotPassWord.class);
 			startActivity(in1);
 			break;
 		case R.id.btn_calloff:
+			Intent ins=super.getIntent();
+			if("user_close".equals(ins.getStringExtra("user_close"))){
+			Intent intent=new Intent(User_Login.this, Main_Activity.class);
+			startActivity(intent);
+			}else{
 			User_Login.this.finish();
+			}
 			break;
 
 		case R.id.tv_login_register:
@@ -85,12 +99,21 @@ public class User_Login extends FinalActivity implements OnClickListener {
 			break;
 		}
 	}
-
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		Intent ins=super.getIntent();
+		Log.i("MainActivity", "onKeyDown");
+		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0&&"user_close".equals(ins.getStringExtra("user_close"))) {
+			Intent intent=new Intent(User_Login.this, Main_Activity.class);
+			startActivity(intent);
+			}else{
+				User_Login.this.finish();
+				}
+		return false;
+		}
 	public void finish(int id) {
 		if (id == 0) {
 			User_Login.this.finish();
-			// Intent in=new Intent(User_Login.this,aaa.class);
-			// startActivity(in);
 
 		}
 	}
