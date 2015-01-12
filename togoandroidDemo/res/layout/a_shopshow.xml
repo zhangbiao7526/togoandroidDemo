@@ -10,4 +10,11 @@
         android:layout_height="wrap_content" >
     </ListView>
 
+    <ImageView
+        android:id="@+id/intent_none"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:src="@drawable/c_101" />
+
 </LinearLayout>

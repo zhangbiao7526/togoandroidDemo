@@ -11,10 +11,6 @@ import net.tsz.afinal.FinalHttp;
 import net.tsz.afinal.http.AjaxCallBack;
 import net.tsz.afinal.http.AjaxParams;
 
-//import eyt.AjaxCallBack;
-//import eyt.AjaxParams;
-//import eyt.FinalHttp;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -22,20 +18,34 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class UserRegister extends Activity {
 	InputMethodManager manager ;
 	EditText e1, e2, e3, e4;
-
+	private TextView tv_title;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		// 自定义标题栏
+		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.registeruser);
+		// 自定义的标题栏xml布局
+		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
+						R.layout.layout_title);
+		
+		tv_title = (TextView) findViewById(R.id.tv_title);
+		tv_title.setText("注册");
+		ImageButton iv_myhome = (ImageButton) findViewById(R.id.iv_myhome);
+		iv_myhome.setVisibility(View.VISIBLE);
+		
 		manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);  //单击空白处取消输入框
 		Button b1 = (Button) findViewById(R.id.sign);
 		b1.setOnClickListener(new OnClickListener() {
@@ -112,11 +122,10 @@ public class UserRegister extends Activity {
 							super.onSuccess(t);
 							String t_ = (String) t;
 							if ("true".equals(t_)) {
-//								Toast.makeText(
-//										UserRegister.this,
-//										"注册成功，账号：" + t.toString() + ","
-//												+ username + "密码：" + password,
-//										Toast.LENGTH_LONG).show();
+								Toast.makeText(
+										UserRegister.this,
+										"注册成功",
+										Toast.LENGTH_LONG).show();
 								myApplication my = (myApplication) UserRegister.this
 										.getApplication();
 								my.setUSER_LOGIN(true);
@@ -126,7 +135,7 @@ public class UserRegister extends Activity {
 								startActivity(in);
 
 							} else {
-								Toast.makeText(UserRegister.this, t.toString(),
+								Toast.makeText(UserRegister.this, "账号已存在",
 										Toast.LENGTH_SHORT).show();
 							}
 						}

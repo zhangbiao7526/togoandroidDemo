@@ -38,7 +38,7 @@ import com.example.togodemo.R;
 public class OneSop_click extends ActionBarActivity implements OnClickListener{
 	private FinalBitmap fm;
 	private TextView tv_oneshop_shopname, tv_oneshop_money, tv_oneshop_type,
-			tv_oneshop_address, tv_oneshop_description;
+			tv_oneshop_address, tv_oneshop_description,tv_oneshop_shopactivity;
 	private ImageView iv_;
 	String img_uri;
 	private Button  whitegrid_bt,btn_addshopcar;
@@ -100,6 +100,8 @@ public class OneSop_click extends ActionBarActivity implements OnClickListener{
 		tv_oneshop_type = (TextView) findViewById(R.id.tv_oneshop_type);
 		tv_oneshop_address = (TextView) findViewById(R.id.tv_oneshop_address);
 		tv_oneshop_description = (TextView) findViewById(R.id.tv_oneshop_description);
+		tv_oneshop_shopactivity=(TextView) findViewById(R.id.tv_oneshop_shopactivity);
+
 		//12/28
 		btn_addshopcar =(Button) findViewById(R.id.btn_addshopcar);
 		//12/28
@@ -131,8 +133,8 @@ public class OneSop_click extends ActionBarActivity implements OnClickListener{
 //				Toast.makeText(OneSop_click.this, shop.toString(), 1000).show();
 				Intent in = new Intent(OneSop_click.this, User_Login.class);
 				//12/25
-				startActivity(in);}
-				else{
+				startActivity(in);
+				}else{
 //				Toast.makeText(OneSop_click.this, "ca"+shop.getF_i_Sid(), 1000).show();
 				Intent intent_im=new Intent();
 				Bundle bundle = new Bundle();
@@ -140,11 +142,12 @@ public class OneSop_click extends ActionBarActivity implements OnClickListener{
 				bundle.putString("tv_oneshop_shopname", tv_oneshop_shopname.getText().toString());  
 				bundle.putString("tv_oneshop_money", tv_oneshop_money.getText().toString()); 
 				//12/25
-				bundle.putString("img_uri", img_uri); 
+				bundle.putString("img_uri",img_uri); 
 				intent_im.putExtra("user_address", my.getUser_address());
 				bundle.putString("img_uri", img_uri); 
 				intent_im.putExtras(bundle);
 				intent_im.putExtra("shop_id", ""+shop.getF_i_Sid());
+				intent_im.putExtra("from_different","from_OneSop_click");
 				
 //				intent_im.putExtra("tv_oneshop_shopname", tv_oneshop_shopname.getText());
 //				intent_im.putExtra("tv_oneshop_money", tv_oneshop_money.getText());
@@ -160,8 +163,9 @@ public class OneSop_click extends ActionBarActivity implements OnClickListener{
 		// 接收从首页传过来的点击事件的值
 		Bundle bundle=getIntent().getExtras();
 		String method=in.getStringExtra("method");
+		String shop_activity=in.getStringExtra("activity");
 		if("home_buymore".equals(method)){
-		HomeFragment(bundle);
+			HomeFragment(bundle,shop_activity);
 		}
 		//12/25
 //		else if("home_viewpg".equals(method)){
@@ -181,7 +185,7 @@ public class OneSop_click extends ActionBarActivity implements OnClickListener{
 		
 	}
 	//所有商品的汇总
-	private void HomeFragment(Bundle bundle) {
+	private void HomeFragment(Bundle bundle, String str) {
 		
 		shop=bundle.getParcelable("buy_moreshop");	
 //		Toast.makeText(this, shop.toString(), 1000).show();
@@ -192,6 +196,9 @@ public class OneSop_click extends ActionBarActivity implements OnClickListener{
 		tv_oneshop_type.setText(shop.getF_c_Stype());
 		tv_oneshop_address.setText(shop.getF_c_Saddress());
 		tv_oneshop_description.setText(shop.getF_c_Sdescription());
+		
+		tv_oneshop_shopactivity.setText(str);
+
 	}
 
 	/**
@@ -225,16 +232,21 @@ public class OneSop_click extends ActionBarActivity implements OnClickListener{
 			finish();
 			break;
 		case R.id.action_1:
-			myApplication ma=(myApplication) getApplication();
-			if(ma.getUser_name()!=null){
-			String username=ma.getUser_name();
-			Bundle bundle=getIntent().getExtras();
-			ShopInfo shopinfo=bundle.getParcelable("buy_moreshop");
-			AddFavoriteNet.addFavoriteData(shopinfo.getF_i_Sid(), username);
+			if(!my.isUSER_LOGIN()){
+				
+			Toast.makeText(this, "请先登录", Toast.LENGTH_SHORT).show();		
+			Intent in = new Intent(OneSop_click.this, User_Login.class);
+			startActivity(in);
 			
-			Toast.makeText(this, "添加成功", Toast.LENGTH_SHORT).show();
 			}else{
-				Toast.makeText(this, "请先登录", Toast.LENGTH_SHORT).show();	
+				
+				String username=my.getUser_name();
+				Bundle bundle=getIntent().getExtras();
+				ShopInfo shopinfo=bundle.getParcelable("buy_moreshop");
+				AddFavoriteNet.addFavoriteData(OneSop_click.this,shopinfo.getF_i_Sid(), username);
+				
+//				Toast.makeText(this, "收藏成功", Toast.LENGTH_SHORT).show();
+				
 			}
 			break;
 		case R.id.action_2:
@@ -251,8 +263,9 @@ public class OneSop_click extends ActionBarActivity implements OnClickListener{
 			whiteviewShareData.setDescription("兔购分享");
 			whiteviewShareData.setTitle("兔购分享");
 			whiteviewShareData.setText("通过兔购，你可以拥有更多，幸福，源于生活 ");
-			whiteviewShareData.setTarget_url("http://youtui.mobi/");
-			whiteviewShareData.setImagePath(VARIABLE.IMAGE_URL+"togo.jpg");
+//			whiteviewShareData.setTarget_url("http://youtui.mobi/");
+			whiteviewShareData.setTarget_url("http://www.baidu.com");
+			whiteviewShareData.setImageUrl(VARIABLE.IMAGE_URL+ shop.getF_c_Simagpath());
 			// shareData.setImagePath(Environment.getExternalStorageDirectory()+YoutuiConstants.FILE_SAVE_PATH+"demo.png");
 			YtTemplate whiteGridTemplate = new YtTemplate(this, YouTuiViewType.WHITE_GRID, true);
 			whiteGridTemplate.setShareData(whiteviewShareData);

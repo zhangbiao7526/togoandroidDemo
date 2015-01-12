@@ -8,15 +8,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.togodemo.R;
-import com.example.togodemo.classifyLayout.ClassifySearch;
 import com.example.togodemo.mode.ShopInfo;
 import com.example.togodemo.variable.VARIABLE;
 
@@ -35,6 +30,11 @@ import com.example.togodemo.variable.VARIABLE;
 			this.hc=h;
 			this.fm=fm;
 		}
+		 public void setSeach(Context h,List<ShopInfo> data,FinalBitmap fm) {
+			 this.data=data;
+			 this.hc=h;
+			 this.fm=fm;
+		 }
 		
 
 		@Override
@@ -75,29 +75,30 @@ import com.example.togodemo.variable.VARIABLE;
 			if(convertView==null){
 			LayoutInflater inflater=LayoutInflater.from(hc);
 			//R.layout.simpleitem 布局文件
-			convertView=inflater.inflate(R.layout.listview_item_delete, null);
+//			convertView=inflater.inflate(R.layout.listview_item_delete, null);
+			convertView=inflater.inflate(R.layout.listview_item, null);
 			}
 			//要从convertView 找对象，否则回报空指针
-			final TextView iv_shop=(TextView) convertView.findViewById(R.id.textView1);
-			final TextView tv_shopname=(TextView) convertView.findViewById(R.id.textView2);
-			TextView tv_shopsome=(TextView) convertView.findViewById(R.id.textView3);
-			ImageView iv_shopimage=(ImageView) convertView.findViewById(R.id.imageView1);
-			Button btn_delete=(Button) convertView.findViewById(R.id.btn_delete);
+			final TextView iv_shop=(TextView) convertView.findViewById(R.id.tv_soucang1);
+			final TextView tv_shopname=(TextView) convertView.findViewById(R.id.tv_soucang2);
+			TextView tv_shopsome=(TextView) convertView.findViewById(R.id.tv_soucang3);
+			ImageView iv_shopimage=(ImageView) convertView.findViewById(R.id.iv_soucang);
+//			Button btn_delete=(Button) convertView.findViewById(R.id.btn_delete);
 			//获取图片要注意，不要写成setId
 			//setText不能添加纯数字，要在数字前面加字符串，比如加个数量
 			iv_shop.setText(s.getF_c_Sname());
-			tv_shopname.setText("$"+s.getF_d_Ssprice());
+			tv_shopname.setText(s.getF_d_Ssprice()+"元");
 			tv_shopsome.setText(s.getF_c_Stype());
 			fm.display(iv_shopimage, VARIABLE.IMAGE_URL+s.getF_c_Simagpath());
 			//12/26   删除单击操作
-			btn_delete.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View arg0) {
-					Toast.makeText(hc, tv_shopname.getText().toString(), Toast.LENGTH_SHORT).show();	
-					((ClassifySearch) hc).showInfo(position);
-				}
-			});
+//			btn_delete.setOnClickListener(new OnClickListener() {
+//				
+//				@Override
+//				public void onClick(View arg0) {
+//					Toast.makeText(hc, tv_shopname.getText().toString(), Toast.LENGTH_SHORT).show();	
+////					((ClassifySearch) hc).showInfo(position);
+//				}
+//			});
 			
 			return convertView;
 		}

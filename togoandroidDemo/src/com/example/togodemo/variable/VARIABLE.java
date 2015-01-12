@@ -7,9 +7,10 @@ public class VARIABLE {
 	
 	
 	//地址：
+//	public static final String path = "10.221.214.110:8080";
 //	public static final String path = "10.30.6.92:8080";
 	public static final String path = "172.27.35.1:8080";
-	//public static final String path = "10.30.6.45:8080";
+//	public static final String path = "10.30.6.45:8080";
 	/**
 	 * User_Login.java
 	 */
@@ -31,14 +32,14 @@ public class VARIABLE {
 			+ "/togoProjectDemo/servlet/android_shop";
 	// BusinessNet.java
 
-	public static final String HOMEVIPAGER_URI = IMAGE_URL + "1.jpg";
-	public static final String HOMEVIPAGER_URI2 = IMAGE_URL + "12.jpg";
+	public static final String HOMEVIPAGER_URI = IMAGE_URL + "42.jpg";
+	public static final String HOMEVIPAGER_URI2 = IMAGE_URL + "111.jpg";
 	public static final String HOMEVIPAGER_URI3 = IMAGE_URL
-			+ "15.jpg";
+			+ "112.jpg";
 	public static final String HOMEVIPAGER_URI4 = IMAGE_URL
-			+ "19.jpg";
+			+ "113.jpg";
 	public static final String HOMEVIPAGER_URI5 = IMAGE_URL
-			+ "2.jpg";
+			+ "118.jpg";
 	// BusinessFragment.java
 	public static final String HOMEVIPAGER_URI6 = IMAGE_URL
 			+ "minprice_pic1.jpg";

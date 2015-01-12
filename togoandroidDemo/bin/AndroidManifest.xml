@@ -50,14 +50,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.togodemo.Main_Activity" />
+        <activity android:name="com.example.togodemo.Main_Activity" 
+                  android:windowSoftInputMode="adjustPan"/>
         <activity android:name="com.example.togodemo.user.User_Login" />
-        <activity android:name="com.example.togodemo.aaa" />
         <!-- 不能忘记样式，否则生成不了class -->
         <activity
             android:name="com.example.togodemo.OneSop_click"
-            android:label="返回"
+            android:label=""
             android:theme="@style/actionBar_" />
+
         <!-- 首页 -->
         <activity android:name="com.example.togodemo.home.Home_moreshop_click" />
         <!-- 用户 -->
@@ -65,30 +66,35 @@
         <activity android:name="com.example.togodemo.user.ForgotPassWord" >
         </activity>
         <!-- 个人中心 -->
-        <activity android:name="com.example.selfcenter.self_shoucang" >
+        <activity android:name="com.example.selfcenter.self_shoucang"
+            	  android:label="@string/tv_baobeishoucang" >
         </activity>
-        <activity android:name="com.example.selfcenter.self_waitinggoods" >
+        <activity android:name="com.example.selfcenter.self_allorders" 
+                  android:label="@string/tv_allorders">
         </activity>
-        <activity android:name="com.example.selfcenter.self_allorders" >
+        <activity android:name="com.example.selfcenter.self_addressadministration" 
+                  android:label="@string/tv_addressadministration">
         </activity>
-        <activity android:name="com.example.selfcenter.self_addressadministration" >
-        </activity>
-        <activity android:name="com.example.selfcenter.self_callcenter" >
-        </activity>
-        <activity android:name="com.example.selfcenter.self_browinghistory" >
+        <activity android:name="com.example.selfcenter.self_callcenter" 
+            	  android:theme="@android:style/Theme.NoTitleBar">
         </activity>
         <!-- 分类 -->
-        <activity android:name="com.example.togodemo.classifyLayout.Classify_Activity_children" >
+        <activity android:name="com.example.togodemo.classifyLayout.Classify_Activity_children">
+            
         </activity>
         <!-- 分类 -->
         <activity android:name="com.example.togodemo.classifyLayout.ClassifySearch" >
         </activity>
         <!-- 活动 -->
         <activity android:name="com.example.togodemo.business.Business_moreshop_click" />
+        <activity
+            android:name="com.example.togodemo.business.business_one"
+            android:label="全部订单"
+            android:theme="@style/actionBar_" />
         <!-- 单个商品购买 -->
         <activity
             android:name="com.example.togodemo.Shop_goods"
-            android:label="返回"
+            android:label=""
             android:theme="@style/actionBar_" />
         <!-- 购买成功页面 -->
         <activity

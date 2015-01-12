@@ -13,8 +13,9 @@
             android:id="@+id/et_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
+            android:layout_weight="2.15"
+            android:layout_margin="5dp"
+            android:background="@drawable/edt_input_s"
             android:inputType="textPersonName" >
 
             <requestFocus />
@@ -23,8 +24,10 @@
         <Button
             android:id="@+id/btn_search"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="44dp"
+            android:layout_margin="5dp"
+            android:layout_weight="0.96"
+            android:background="@drawable/btn_one_layout"
             android:text="搜索" />
         
     </LinearLayout>

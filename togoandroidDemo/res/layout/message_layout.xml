@@ -112,7 +112,7 @@
                     android:layout_weight="1"
                     android:scaleType="fitXY"
                     android:layout_marginRight="3dp"
-                    android:src="@drawable/c" />
+                     />
 				 <View
                     android:layout_width="1dip"
                     android:layout_height="match_parent"
@@ -125,7 +125,7 @@
                     android:scaleType="fitXY"
                     android:layout_marginRight="3dp"
                     android:layout_marginLeft="3dp"
-                    android:src="@drawable/b" />
+                    />
                 <View
                     android:layout_width="1dip"
                     android:layout_height="match_parent"
@@ -137,7 +137,7 @@
                     android:layout_weight="1"
                     android:scaleType="fitXY"
                     android:layout_marginLeft="3dp"
-                    android:src="@drawable/d" />
+                     />
 			</LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -178,7 +178,7 @@
                     android:layout_weight="1"
                     android:scaleType="fitXY"
                     android:layout_marginRight="3dp"
-                    android:src="@drawable/a" />
+                     />
 				 <View
                     android:layout_width="1dip"
                     android:layout_height="match_parent"
@@ -191,7 +191,7 @@
                     android:scaleType="fitXY"
                     android:layout_marginRight="3dp"
                     android:layout_marginLeft="3dp"
-                    android:src="@drawable/a" />
+                     />
                 <View
                     android:layout_width="1dip"
                     android:layout_height="match_parent"
@@ -203,7 +203,7 @@
                     android:layout_weight="1"
                     android:scaleType="fitXY"
                     android:layout_marginLeft="3dp"
-                    android:src="@drawable/a" />
+                     />
 			</LinearLayout>
 		  </LinearLayout>	
 		</LinearLayout>

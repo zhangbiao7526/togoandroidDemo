@@ -16,13 +16,13 @@
         <LinearLayout  
 	    android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:background="#778899"
+        android:background="#FFECF5"
         android:paddingLeft="10dp"
         android:orientation="horizontal">
        <LinearLayout  
 	    android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="#778899"
+       
         android:paddingLeft="10dp"
         android:orientation="vertical"> 
 	   <TextView
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
-            android:background="#778899"
+            android:layout_marginTop="3dp"
             android:paddingLeft="10dp"
             android:text="@string/tv_arrive_address" /> 
 	   <TextView
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
-            android:background="#778899"
+           
             android:paddingLeft="10dp"
             android:text="@string/tv_arrive_phone" /> 
 	   <TextView
@@ -46,40 +46,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
-            android:background="#778899"
+      
             android:paddingLeft="10dp"
             android:text="@string/tv_arrive_kuaidi" /> 
             </LinearLayout>
        <LinearLayout  
 	    android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="#778899"
+       
         android:paddingLeft="10dp"
         android:orientation="vertical"> 
-	   <EditText
+	   <TextView
             android:id="@+id/edt_u_arrive_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
-            android:background="#778899"
+            android:layout_marginTop="3dp"
             android:paddingLeft="10dp"
             android:ems="10"
             /> 
-	   <EditText
+	   <TextView
             android:id="@+id/edt_u_arrive_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
-            android:background="#778899"
+     
             android:paddingLeft="10dp"
             android:ems="10"
              /> 
-	   <EditText
+	   <TextView
             android:id="@+id/edt_u_arrive_peisong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
-            android:background="#778899"
+         
             android:paddingLeft="10dp"
             android:ems="10"
             android:text="圆通快递"/> 
@@ -93,7 +93,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
              android:paddingTop="10dp"
-          
             >
 
             <LinearLayout
@@ -121,6 +120,12 @@
                 android:orientation="vertical"
                 android:layout_marginRight="5dp"
                 android:paddingTop="10dp" >
+                
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                 >
 			
                 
                 <TextView
@@ -129,8 +134,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.37"
                     android:paddingBottom="0dp"
-                    android:gravity="right"
+                    android:layout_marginLeft="15dp"
                     android:text="@string/tv_oneshop_money" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.37"
+                    android:paddingBottom="0dp"
+                    android:text="元" />
+                </LinearLayout>
                 <TextView
                     android:id="@+id/tv_shop_buyquantity"
                     android:layout_width="match_parent"
@@ -159,36 +171,41 @@
             <Button
                 android:id="@+id/btn_shopgoods_reduce"
                 android:layout_width="46dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                
+                android:background="@drawable/btn_one_layout"
                 android:text="-" />
 
-            
-
 			<EditText
-                android:id="@+id/edt_shopgoods_buyquantity"
-                android:layout_width="89dp"
-                android:layout_height="wrap_content"
-                android:ems="10" 
-                android:inputType="number" >
+			    android:id="@+id/edt_shopgoods_buyquantity"
+			    android:layout_width="40dp"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="0.02"
+			    android:background="@drawable/edt_input_s"
+			    android:cursorVisible="false"
+			    android:inputType="number" >
 
             </EditText>
 
             <Button
                 android:id="@+id/btn_shopgoods_add"
                 android:layout_width="46dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+               
                 android:layout_marginRight="2dp"
+                android:background="@drawable/btn_one_layout"
                 android:text="+" />
+
         </LinearLayout>
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="32dp"
-            android:text="配送方式" />
+            android:text="" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/et_leave_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -229,6 +246,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="价格" />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="元" />
         </LinearLayout>
     </LinearLayout>
 
@@ -250,11 +272,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="价格" />
-
+  		<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="元" />
         <Button
             android:id="@+id/btn_shopgoods_affirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/btn_one_layout"
+            android:layout_margin="5dp"
             android:text="确认" />
 
     </LinearLayout>

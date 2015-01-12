@@ -257,6 +257,7 @@ public class BusinessFragment extends Fragment implements OnClickListener {
 		if(my.getList_shopinfos()!=null&&i<3){
 		ShopInfo shop;
 		intent.putExtra("method", "home_buymore");
+		intent.putExtra("activity", "活动： 最低价");
 		Bundle bundle = new Bundle();
 		shop=my.getList_shopinfos().get(i).get("haoping");
 		bundle.putParcelable("buy_moreshop", shop);
@@ -267,6 +268,7 @@ public class BusinessFragment extends Fragment implements OnClickListener {
 		}else if(my.getList_shopinfos_baoyou()!=null&&i>2&&i<6){
 			ShopInfo shop;
 			intent.putExtra("method", "home_buymore");
+			intent.putExtra("activity", "活动：包邮");
 			Bundle bundle = new Bundle();
 			shop=my.getList_shopinfos_baoyou().get(i-3).get("baoyou");
 //			Toast.makeText(getActivity(), shop.toString()+","+i, 1000).show();
@@ -278,6 +280,7 @@ public class BusinessFragment extends Fragment implements OnClickListener {
 		}else if(my.getList_shopinfos_cuxiao()!=null&&i>5&&i<9){
 			ShopInfo shop;
 			intent.putExtra("method", "home_buymore");
+			intent.putExtra("activity", "活动：限时促销");
 			Bundle bundle = new Bundle();
 			shop=my.getList_shopinfos_cuxiao().get(i-6).get("cuxiao");
 			bundle.putParcelable("buy_moreshop", shop);

@@ -1,7 +1,9 @@
 package com.example.togodemo.ztest;
 
 import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -40,9 +42,7 @@ public class BusinessNet {
 
 				@Override
 				public void onSuccess(Object t) {
-					// TODO Auto-generated method stub
 					super.onSuccess(t);
-					
 						Gson g = new Gson();
 						// 将集合字符串转换成集合
 						Type typeOfT = new TypeToken<List<ShopInfo>>() {
@@ -53,7 +53,17 @@ public class BusinessNet {
 						for(int i=0;i<3;i++){
 							fb.display(imageview[i], VARIABLE.IMAGE_URL+list.get(i).getF_c_Simagpath());
 							tv_list.get(i).setText("单价："+list.get(i).getF_d_Ssprice());
-							tv_desclist.get(i).setText("活动结束日期："+list.get(i).getBusiness().getF_d_Bend());
+							
+							String date=list.get(i).getBusiness().getF_d_Bend();
+							SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+							try {
+								Date d=formatter.parse(date);
+								String now_date=formatter.format(d);
+								//tv_desclist.get(i).setText("结束日期："+list.get(i).getBusiness().getF_d_Bend());
+								tv_desclist.get(i).setText(now_date);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
 						}
 						for(int i=0;i<list.size();i++){
 							HashMap<String,ShopInfo> hasp=new HashMap<String, ShopInfo>();
@@ -62,13 +72,11 @@ public class BusinessNet {
 							my.setList_shopinfos(list_hasp_zuidi);
 							//Toast.makeText(businessFragment,"单个hasp"+list_hasp_zuidi.get(i).get("haoping").toString() , Toast.LENGTH_SHORT).show();
 						}
-						
 //						Toast.makeText(businessFragment,"单个hasp1"+my.getList_shopinfos().get(0).get("haoping").toString()+"集合长度"+list_hasp.size() , Toast.LENGTH_SHORT).show();
 //						Toast.makeText(businessFragment,"单个hasp2"+list_hasp.get(1).get("haoping").toString() , Toast.LENGTH_SHORT).show();
 						//Toast.makeText(businessFragment, list.get(0).toString(), Toast.LENGTH_SHORT).show();
 				}
 				});
-		
 	}
 
 	public static void getDataFromSQL_baoyou(final FragmentActivity businessFragment,
@@ -85,7 +93,6 @@ public class BusinessNet {
 
 				@Override
 				public void onSuccess(Object t) {
-					// TODO Auto-generated method stub
 					super.onSuccess(t);
 					
 						Gson g = new Gson();
@@ -97,7 +104,17 @@ public class BusinessNet {
 						for(int i=0;i<3;i++){
 							fb.display(imageview[i], VARIABLE.IMAGE_URL+list.get(i).getF_c_Simagpath());
 							tv_list.get(i+3).setText("单价："+list.get(i).getF_d_Ssprice());
-							tv_desclist.get(i+3).setText("活动结束日期："+list.get(i).getBusiness().getF_d_Bend());
+							//
+							String date=list.get(i).getBusiness().getF_d_Bend();
+							SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+							try {
+								Date d=formatter.parse(date);
+								String now_date=formatter.format(d);
+								tv_desclist.get(i+3).setText(now_date);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							//tv_desclist.get(i+3).setText("结束日期："+list.get(i).getBusiness().getF_d_Bend());
 						}
 						for(int i=0;i<list.size();i++){
 							HashMap<String,ShopInfo> hasp=new HashMap<String, ShopInfo>();
@@ -106,7 +123,6 @@ public class BusinessNet {
 							my.setList_shopinfos_baoyou(list_hasp_baoyou);
 //							Toast.makeText(businessFragment,"包邮单个hasp"+list_hasp_baoyou.get(i).get("baoyou").toString() , Toast.LENGTH_SHORT).show();
 						}
-						
 //						Toast.makeText(businessFragment, list.get(0).toString(), Toast.LENGTH_SHORT).show();
 				}
 				});
@@ -124,7 +140,6 @@ public class BusinessNet {
 
 				@Override
 				public void onSuccess(Object t) {
-					// TODO Auto-generated method stub
 					super.onSuccess(t);
 					
 						Gson g = new Gson();
@@ -136,7 +151,17 @@ public class BusinessNet {
 						for(int i=0;i<3;i++){
 							fb.display(imageview[i], VARIABLE.IMAGE_URL+list.get(i).getF_c_Simagpath());
 							tv_list.get(i+6).setText("单价："+list.get(i).getF_d_Ssprice());
-							tv_desclist.get(i+6).setText("活动结束日期："+list.get(i).getBusiness().getF_d_Bend());
+							
+							String date=list.get(i).getBusiness().getF_d_Bend();
+							SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+							try {
+								Date d=formatter.parse(date);
+								String now_date=formatter.format(d);
+								tv_desclist.get(i+6).setText(now_date);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							//tv_desclist.get(i+6).setText("结束日期："+list.get(i).getBusiness().getF_d_Bend());
 						}
 						for(int i=0;i<list.size();i++){
 							HashMap<String,ShopInfo> hasp=new HashMap<String, ShopInfo>();
@@ -145,9 +170,8 @@ public class BusinessNet {
 							my.setList_shopinfos_cuxiao(list_hasp_cuxiao);
 //							Toast.makeText(businessFragment,"包邮单个hasp"+list_hasp_cuxiao.get(i).get("cuxiao").toString() , Toast.LENGTH_SHORT).show();
 						}
-						
 //						Toast.makeText(businessFragment, list.get(0).toString(), Toast.LENGTH_SHORT).show();
-				}
+				  }
 				});
 	}
 }

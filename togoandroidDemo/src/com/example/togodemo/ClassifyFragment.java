@@ -7,6 +7,7 @@ import com.example.togodemo.classifyLayout.ClassifyFragment_right4;
 import com.example.togodemo.classifyLayout.ClassifyFragment_right5;
 import com.example.togodemo.ztest.SearchNet;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,7 +18,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class ClassifyFragment extends Fragment implements OnClickListener {
 
@@ -67,14 +67,19 @@ public class ClassifyFragment extends Fragment implements OnClickListener {
 		btn_classify_4.setOnClickListener(this);
 		btn_classify_5.setOnClickListener(this);
 		btn_search.setOnClickListener(this);
+		
+		btn_clear();
+		btn_classify_1.setTextColor(Color.BLACK);
+		
 		return contactsLayout;
 	}
 
 	@Override
 	public void onClick(View v) {
-		// 寮€濮嬩簨鐗?
+		// 事务管理
 		FragmentTransaction tran = fm.beginTransaction();
 		int id = v.getId();
+		btn_clear();
 		switch (id) {
 		case R.id.btn_classify_left_linear1:
 			// 鍥犱负褰撳墠鐨刟ctivity涓嶆槸鐪熸鐨刟ctivity锛屾墍浠ヤ笉鑳界敤甯歌鐨勭晫闈㈣烦杞紝
@@ -83,38 +88,59 @@ public class ClassifyFragment extends Fragment implements OnClickListener {
 			// Intent i=new Intent();
 			// i.setClass(getActivity(), aaa.class);
 			// getActivity().startActivity(i);
+			
+			btn_classify_1.setTextColor(Color.BLACK);
 			fg_classify_right1 = new ClassifyFragment_right1();
 			tran.replace(R.id.fg_classify_right_fragment, fg_classify_right1);
-
 			break;
 		case R.id.btn_classify_left_linear2:
+			
+			btn_classify_2.setTextColor(Color.BLACK);
 			fg_classify_right2 = new ClassifyFragment_right2();
 			tran.replace(R.id.fg_classify_right_fragment, fg_classify_right2);
 			break;
 		case R.id.btn_classify_left_linear3:
+			
+			btn_classify_3.setTextColor(Color.BLACK);
 			fg_classify_right3 = new ClassifyFragment_right3();
 			tran.replace(R.id.fg_classify_right_fragment, fg_classify_right3);
 			break;
 		case R.id.btn_classify_left_linear4:
+			
+			btn_classify_4.setTextColor(Color.BLACK);
 			fg_classify_right4 = new ClassifyFragment_right4();
 			tran.replace(R.id.fg_classify_right_fragment, fg_classify_right4);
 			break;
 		case R.id.btn_classify_left_linear5:
+			
+			btn_classify_5.setTextColor(Color.BLACK);
 			fg_classify_right5 = new ClassifyFragment_right5();
 			tran.replace(R.id.fg_classify_right_fragment, fg_classify_right5);
 			break;
 			//1226
 		case R.id.btn_search:
 			String edittext=et_search.getText().toString();
-			Toast.makeText(getActivity(), edittext, Toast.LENGTH_LONG).show();
+			
+//			Toast.makeText(getActivity(), edittext, Toast.LENGTH_LONG).show();
 			SearchNet.getDataBySearch(getActivity(),edittext);
 			break;
 		}
 		tran.commit();
 	}
 
+
+	private void btn_clear() {
+		btn_classify_1.setTextColor(Color.parseColor("#9E9EA7"));
+		btn_classify_2.setTextColor(Color.parseColor("#9E9EA7"));
+		btn_classify_3.setTextColor(Color.parseColor("#9E9EA7"));
+		btn_classify_4.setTextColor(Color.parseColor("#9E9EA7"));
+		btn_classify_5.setTextColor(Color.parseColor("#9E9EA7"));
+		
+	}
+
 	private void setTabSelection(int i) {
 		FragmentTransaction tran = fm.beginTransaction();
+		
 		switch (i) {
 		case 0:
 			fg_classify_right1 = new ClassifyFragment_right1();

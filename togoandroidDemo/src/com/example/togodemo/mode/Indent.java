@@ -168,52 +168,5 @@ public class Indent implements Serializable {
 				+ ", f_d_Ssprice="+shopInfo.getF_d_Ssprice()+", f__c_Stype="+shopInfo.getF_c_Stype()+"]";
 	}
 
-	
-//	@Override
-//	public int describeContents() {
-//		return 0;
-//	}
-//	@Override
-//	public void writeToParcel(Parcel dest, int flags) {
-//		dest.writeInt(f_i_Iid);
-//		dest.writeInt(f_i_userid);
-//		dest.writeString(f_c_username);
-//		dest.writeString(f_c_Iconsignee);
-//		dest.writeString(f_c_Idelivery);
-//		dest.writeString(f_c_Iaddress);
-//		dest.writeString(f_c_Iphone);
-//		dest.writeInt(f_i_Ishopid);
-////		dest.writeValue(shopInfo);
-//		dest.writeDouble(f_c_IshouldPay);
-//		dest.writeInt(f_c_Istatus);
-//	}
-
-//	public Indent(Parcel source) {
-//		f_i_Iid = source.readInt();
-//		f_i_userid = source.readInt();
-//		f_c_username = source.readString();
-//		f_c_Iconsignee = source.readString();
-//		f_c_Idelivery = source.readString();
-//		f_c_Iaddress = source.readString();
-//		f_c_Iphone = source.readString();
-//		f_i_Ishopid = source.readInt();
-//	}
-
-//	public static final Parcelable.Creator<Indent> CREATOR = new Creator<Indent>() {
-//
-//		@Override
-//		public Indent[] newArray(int size) {
-//
-//			return new Indent[size];
-//		}
-//
-//		@Override
-//		public Indent createFromParcel(Parcel source) {
-//
-//			return new Indent(source);
-//		}
-//	};
-
-	
 }
 

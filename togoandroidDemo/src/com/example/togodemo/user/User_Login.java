@@ -15,9 +15,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,15 +28,22 @@ public class User_Login extends FinalActivity implements OnClickListener {
 
 	private Button btn_login, btn_calloff;
 	private EditText edt_login_name, edt_login_password;
-	private TextView tv_login_register, tv_login_forget;
+	private TextView tv_login_register, tv_login_forget,tv_title;
 	public User user = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		// 自定义标题栏
+		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login_layout);
-
+		// 自定义的标题栏xml布局
+		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
+				R.layout.layout_title);
+		ImageButton iv_myhome = (ImageButton) findViewById(R.id.iv_myhome);
+		iv_myhome.setVisibility(View.INVISIBLE);
+		
 		btn_login = (Button) findViewById(R.id.btn_login);
 		btn_calloff = (Button) findViewById(R.id.btn_calloff);
 
@@ -43,7 +52,9 @@ public class User_Login extends FinalActivity implements OnClickListener {
 
 		tv_login_register = (TextView) findViewById(R.id.tv_login_register);
 		tv_login_forget = (TextView) findViewById(R.id.tv_login_forget);
-
+		tv_title = (TextView) findViewById(R.id.tv_title);
+		tv_title.setText("登录");
+		
 		btn_login.setOnClickListener(this);
 		btn_calloff.setOnClickListener(this);
 		tv_login_register.setOnClickListener(this);
@@ -95,6 +106,8 @@ public class User_Login extends FinalActivity implements OnClickListener {
 		case R.id.tv_login_register:
 			Intent in = new Intent(this, UserRegister.class);
 			startActivity(in);
+			break;
+			
 		default:
 			break;
 		}
@@ -106,11 +119,12 @@ public class User_Login extends FinalActivity implements OnClickListener {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0&&"user_close".equals(ins.getStringExtra("user_close"))) {
 			Intent intent=new Intent(User_Login.this, Main_Activity.class);
 			startActivity(intent);
-			}else{
+			}else if(keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0){
 				User_Login.this.finish();
 				}
 		return false;
 		}
+	
 	public void finish(int id) {
 		if (id == 0) {
 			User_Login.this.finish();

@@ -7,23 +7,22 @@ import java.util.Map;
 import net.tsz.afinal.FinalBitmap;
 
 import com.example.togodemo.R;
-import com.example.togodemo.ShopcarFragment;
 import com.example.togodemo.myApplication;
 import com.example.togodemo.mode.UserShopCar;
 import com.example.togodemo.variable.VARIABLE;
 
 import android.content.Context;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DemoAdapter extends BaseAdapter {
 
@@ -40,7 +39,7 @@ public class DemoAdapter extends BaseAdapter {
 	/**
 	 *图片展示 
 	 */
-	private FinalBitmap bm;
+	private FinalBitmap bm;                                                                                                                                  
 	private myApplication my;
 	/**
 	 * CheckBox 是否选择的存储集合,key 是 position , value 是该position是否选中
@@ -82,7 +81,9 @@ public class DemoAdapter extends BaseAdapter {
 	public long getItemId(int position) {
 		return 0;
 	}
-
+//	private TextView tvTitle,tv_num;
+//	private View layout_shopcar1,layout_shopcar2,layout_shopcar3;
+//	private ImageView iv_item_shopcar_bianji,iv_item_shopcarimg;
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
 
@@ -93,7 +94,7 @@ public class DemoAdapter extends BaseAdapter {
 		 */
 		if (convertView == null) {
 			layout = (ViewGroup) LayoutInflater.from(context).inflate(
-					R.layout.shopcat_item, parent, false);
+					R.layout.shopcat_items, parent, false);
 		} else {
 			layout = (ViewGroup) convertView;
 		}
@@ -109,15 +110,78 @@ public class DemoAdapter extends BaseAdapter {
 		 * 设置每一个item的文本
 		 */
 		
-		TextView tvTitle = (TextView) layout.findViewById(R.id.tv_car_num);
+		final TextView tvTitle = (TextView) layout.findViewById(R.id.tv_car_num);
 		tvTitle.setText(""+bean.getF_i_Caddnum());
-		TextView tvPrice = (TextView) layout.findViewById(R.id.tv_car_price);
+		final TextView tvPrice = (TextView) layout.findViewById(R.id.tv_car_price);
 		tvPrice.setText(""+bean.getShopInfo().getF_d_Ssprice());
-		TextView tv_shopname = (TextView) layout.findViewById(R.id.tv_shopname);
+		final TextView tv_shopname = (TextView) layout.findViewById(R.id.tv_shopname);
 		tv_shopname.setText(""+bean.getShopInfo().getF_c_Sname());
-		ImageView ivShop = (ImageView) layout.findViewById(R.id.iv_item_shopcarimg);
+		final ImageView ivShop = (ImageView) layout.findViewById(R.id.iv_item_shopcarimg);
 		bm.display(ivShop,VARIABLE.IMAGE_URL+bean.getShopInfo().getF_c_Simagpath());
-
+		//这三个要隐藏
+		final View layout_shopcar1 = layout.findViewById(R.id.layout_shopcar1);
+//		final View layout_shopcar2 = layout.findViewById(R.id.layout_shopcar2);
+		final ImageView iv_item_shopcar_bianji =(ImageView) layout.findViewById(R.id.iv_item_shopcar_bianji);
+		//1/4
+		
+		ImageView iv_jian =(ImageView) layout.findViewById(R.id.iv_item_shopcar_jian);
+		ImageView iv_jia =(ImageView) layout.findViewById(R.id.iv_item_shopcar_jia);
+		ImageView iv_item_shopcarimg =(ImageView) layout.findViewById(R.id.iv_item_shopcar_finish);
+		final TextView tv_num = (TextView) layout.findViewById(R.id.tv_shopcar_num);
+		//需要隐藏
+		final View layout_shopcar3 = layout.findViewById(R.id.layout_shopcar3);
+		
+		iv_jia.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				int one=Integer.parseInt(tvTitle.getText().toString());
+				one=one+1;
+				tv_num.setText(""+one);
+				tvTitle.setText(""+one);
+				bean.setF_i_Caddnum(one);
+//				Toast.makeText(context, ""+bean.getF_i_Caddnum(), 1000).show();
+			}
+		});
+		
+		iv_jian.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				int one=Integer.parseInt(tvTitle.getText().toString());
+				
+				if(one>1){
+				one=one-1;
+				tv_num.setText(""+one);
+				tvTitle.setText(""+one);
+				bean.setF_i_Caddnum(one);
+//				Toast.makeText(context, ""+bean.getF_i_Caddnum(), 1000).show();
+				}else{
+					Toast.makeText(context, "商品数不能小于1", 1000).show();	
+				}
+			}
+		});
+		iv_item_shopcar_bianji.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				tv_num.setText(""+bean.getF_i_Caddnum());
+				layout_shopcar3.setVisibility(View.VISIBLE);
+				layout_shopcar1.setVisibility(View.GONE);
+//				layout_shopcar2.setVisibility(View.GONE);
+				iv_item_shopcar_bianji.setVisibility(View.GONE);
+			}
+		});
+		iv_item_shopcarimg.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				layout_shopcar3.setVisibility(View.GONE);
+				layout_shopcar1.setVisibility(View.VISIBLE);
+//				layout_shopcar2.setVisibility(View.VISIBLE);
+				iv_item_shopcar_bianji.setVisibility(View.VISIBLE);
+			}
+		});
+		
+		
+		
 		/*
 		 * 获得单选按钮
 		 */

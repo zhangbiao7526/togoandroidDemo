@@ -4,52 +4,65 @@
     android:layout_height="match_parent"
     android:orientation="horizontal" >
 <RelativeLayout 
+    android:layout_weight="1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textView_delete1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="17dp"
         android:layout_marginTop="14dp"
-        android:layout_toRightOf="@+id/imageView1"
+        android:layout_toRightOf="@+id/imageView_delete"
         android:text="三只松鼠手剥巴旦木坚果" 
         />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView_delete2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/textView_delete1"
+        android:layout_below="@+id/textView_delete1"
         android:layout_marginTop="14dp"
         android:text="   35.9 ￥"
         android:textColor="#ff0000" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView1"
-        android:layout_alignLeft="@+id/textView2"
-        android:text="库存   ：120件" />
-
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageView_delete"
         android:layout_width="100sp"
         android:layout_height="80sp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/wqe" />
+         />
+
+    <TextView
+        android:id="@+id/textView_delete3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_delete2"
+        android:layout_toRightOf="@+id/textView_delete33"
+        android:text="库存   ：120件" />
+
+    <TextView
+        android:id="@+id/textView_delete33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_delete2"
+        android:layout_below="@+id/textView_delete2"
+        android:text="类型：" />
 
 </RelativeLayout>
 
-<Button
-    android:id="@+id/btn_delete"
-    android:layout_width="match_parent"
+
+<TextView
+    android:id="@+id/tv_delete"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginRight="0dp"
+    android:layout_marginTop="35dp"
+    android:layout_weight="3"
     android:text="删除" />
 
 </LinearLayout>

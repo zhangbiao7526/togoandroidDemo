@@ -1,6 +1,8 @@
 package com.example.togodemo.ui;
 
+import com.example.selfcenter.self_addressadministration;
 import com.example.selfcenter.self_allorders;
+import com.example.selfcenter.self_callcenter;
 import com.example.selfcenter.self_shoucang;
 import com.example.togodemo.R;
 import net.tsz.afinal.annotation.view.ViewInject;
@@ -12,7 +14,10 @@ import com.example.togodemo.ShopcarFragment;
 import com.example.togodemo.myApplication;
 import com.example.togodemo.user.User_Login;
 
+import android.app.AlertDialog;
+import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -108,7 +113,7 @@ public abstract class abstOnTouchListener extends FragmentActivity implements
 	protected VelocityTracker mVelocityTracker;
 	protected Button b1 = null, b2 = null;
 	protected EditText e = null;
-	protected TextView right = null;
+	protected TextView right = null,right_geren=null;
 	protected LinearLayout myLinearLayout = null;
 	// 定义一个静态常量flag，当flag=0时，单击个人中心图标进入menu界面，
 	// 进入menu界面后将flag赋值为1,flag=1时，单击个人中心按钮回到content界面；
@@ -303,15 +308,22 @@ public abstract class abstOnTouchListener extends FragmentActivity implements
 					if (shouldScrollToMenu()) {
 						pageID = 0;
 						scrollToMenu();
-
+						//1/7
+//						right.setText(R.string.title_myhome);
+						right_geren.setVisibility(View.VISIBLE);
+						right.setVisibility(View.GONE);
 					} else {
-						right.setText(R.string.title_home);
+//						right.setText(R.string.title_home);
+						right_geren.setVisibility(View.GONE);
+						right.setVisibility(View.VISIBLE);
 						scrollToContent();
 
 					}
 				} else if (wantToShowContent()) {
 					if (shouldScrollToContent()) {
-						right.setText(R.string.title_home);
+//						right.setText(R.string.title_home);
+						right_geren.setVisibility(View.GONE);
+						right.setVisibility(View.VISIBLE);
 						scrollToContent();
 					} else {
 						scrollToMenu();
@@ -494,6 +506,9 @@ public abstract class abstOnTouchListener extends FragmentActivity implements
 	 * @param millis
 	 *            指定当前线程睡眠多久，以毫秒为单位
 	 */
+	private Intent intent;
+	private ContentResolver cResolver;
+	private int sys_brightness;
 	protected void sleep(long millis) {
 		try {
 			Thread.sleep(millis);
@@ -536,26 +551,74 @@ public abstract class abstOnTouchListener extends FragmentActivity implements
 				setTabSelection(3);
 			}
 			break;
-		case R.id.btn_close:
+		case R.id.tv_close:
+			intent = new Intent(Intent.ACTION_MAIN);
+			intent.addCategory(Intent.CATEGORY_HOME);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			new AlertDialog.Builder(abstOnTouchListener.this)
+			.setTitle("提示")
+			.setIcon(R.drawable.logo_togo)
+			.setMessage("是否要退出登录")
+			.setPositiveButton("是", new android.content.DialogInterface.OnClickListener(){
+			@Override
+			public void onClick(DialogInterface dialoginterface, int i)
+			    	 {
+//				传个Intent值过去
+				myApplication my1 = (myApplication) abstOnTouchListener.this.getApplication();
+				my1.setUSER_LOGIN(false);
+				
+				my1.setUser_address("");
+				my1.setUser_phone("");
+				Intent _user_close=new Intent(abstOnTouchListener.this,User_Login.class);
+				_user_close.putExtra("user_close", "user_close");
+				startActivity(_user_close);	
+//			Settings.System.putInt(cResolver, Settings.System.SCREEN_BRIGHTNESS, sys_brightness);
+//			startActivity(intent);
+//			java.lang.System.exit(0);
+			    	 //finish();//只是退出当前activity
+			    	 }
+			})
+			.setNegativeButton("否", new android.content.DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+
+			}
+			}).show();
 			//传个Intent值过去
-			myApplication my1 = (myApplication) this.getApplication();
-			my1.setUSER_LOGIN(false);
-			Intent _user_close=new Intent(this,User_Login.class);
-			_user_close.putExtra("user_close", "user_close");
-			startActivity(_user_close);
+//			myApplication my1 = (myApplication) this.getApplication();
+//			my1.setUSER_LOGIN(false);
+//			Intent _user_close=new Intent(this,User_Login.class);
+//			_user_close.putExtra("user_close", "user_close");
+//			startActivity(_user_close);
 			break;
-			//12/26
+			//12/26订单查看
 		case R.id.tv_allorders:
+			
 			Intent in=new Intent(this,self_allorders.class);
 			startActivity(in);
 			break;
-		// 12/26
+		// 12/26收藏并查看
 		case R.id.tv_baobeishoucang:
 
 			Intent shoucang = new Intent(this, self_shoucang.class);
 			startActivity(shoucang);
 			break;
-
+		//地址管理
+		case R.id.tv_addressadministration:
+			
+			Intent address = new Intent(this, self_addressadministration.class);
+			address.putExtra("from_butong", "from_tv_addressadministration");
+			startActivity(address);
+			myApplication mys=(myApplication) abstOnTouchListener.this.getApplication();
+//			Toast.makeText(abstOnTouchListener.this, mys.getUser_phone(), 1000).show();
+			break;
+			//反馈
+		case R.id.tv_callcenter:
+			
+			Intent callcenter = new Intent(this, self_callcenter.class);
+			startActivity(callcenter);
+			break;
 		default:
 			break;
 		}

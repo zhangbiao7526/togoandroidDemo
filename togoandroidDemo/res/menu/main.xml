@@ -12,7 +12,7 @@
       -->
       <item
         android:id="@+id/action_1"
-        android:icon="@drawable/la"
+        android:icon="@drawable/ic_action_important"
         android:title="@string/action_settings"
         app:showAsAction="ifRoom"
         />
@@ -21,8 +21,8 @@
 	<item
         android:id="@+id/action_2"
         android:icon="@drawable/ic_action_share"
-        android:title="@string/action_settings"
-        app:showAsAction="always"
+        android:title="@string/action_fenxiang"
+        app:showAsAction="ifRoom"
         />
 
 </menu>

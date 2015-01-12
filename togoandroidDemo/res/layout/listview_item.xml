@@ -4,40 +4,83 @@
     android:layout_height="match_parent" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/tv_soucang1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="17dp"
         android:layout_marginTop="14dp"
-        android:layout_toRightOf="@+id/imageView1"
-        android:text="三只松鼠手剥巴旦木坚果" 
-        />
+        android:layout_toRightOf="@+id/iv_soucang"
+        android:text="三只松鼠手剥巴旦木坚果" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/tv_soucang1"
+        android:layout_below="@+id/tv_soucang1"
         android:layout_marginTop="14dp"
-        android:text="   35.9 ￥"
+        android:text="单价："
         android:textColor="#ff0000" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView1"
-        android:layout_alignLeft="@+id/textView2"
-        android:text="库存   ：120件" />
-
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/iv_soucang"
         android:layout_width="100sp"
         android:layout_height="80sp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/wqe" />
+         />
+
+    <TextView
+        android:id="@+id/tv_soucang33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:text="类型：" />
+
+    <TextView
+        android:id="@+id/tv_soucang3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_soucang33"
+        android:layout_alignLeft="@+id/tv_soucang2"
+        android:layout_alignTop="@+id/tv_soucang33"
+        android:text="库存   ：120件" />
+
+    <TextView
+        android:id="@+id/tv_soucang2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_soucang33"
+        android:layout_toRightOf="@+id/textView1"
+        android:text="   35.9 ￥"
+        android:textColor="#ff0000" />
+ 
+    <TextView
+        android:id="@+id/tv_business_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_soucang1"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+         />
+
+    <TextView
+        android:id="@+id/tv_business_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_soucang2"
+        android:layout_alignRight="@+id/tv_business_type"
+        />
+
+    <TextView
+        android:id="@+id/tv_yuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_soucang2"
+        android:layout_alignBottom="@+id/tv_soucang2"
+        android:layout_toRightOf="@+id/tv_soucang2"
+        android:textColor="#ff0000" />
 
 </RelativeLayout>

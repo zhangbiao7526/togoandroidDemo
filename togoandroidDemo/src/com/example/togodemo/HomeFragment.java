@@ -35,8 +35,8 @@ public class HomeFragment extends Fragment implements OnClickListener {
 	private TextView tv_HOMEFragment_buymore_click1,
 			tv_HOMEFragment_buymore_click2;
 
-	private int[] imgResIDs = new int[] { R.drawable.a, R.drawable.b,
-			R.drawable.c, R.drawable.d, R.drawable.e };
+//	private int[] imgResIDs = new int[] { R.drawable.a, R.drawable.b,
+//			R.drawable.c, R.drawable.d, R.drawable.e };
 	private int[] radioButtonID = new int[] { R.id.radio0, R.id.radio1,
 			R.id.radio2, R.id.radio3, R.id.radio4 };
 	private ViewPager pager;
@@ -174,7 +174,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 			@Override
 			public int getCount() {
 //				System.out.println("imgResIDs.length:" + imgResIDs.length);
-				return imgResIDs.length;
+				return imgString.length;
 			}
 
 		});
@@ -327,13 +327,13 @@ public class HomeFragment extends Fragment implements OnClickListener {
 	}
 	private void initAllItems() {
 		// 初始化Viewpager的所有item
-		for (int i = 0; i < imgResIDs.length; i++) {
-			items.add(initPagerItem(imgResIDs[i], imgString[i]));
+		for (int i = 0; i < imgString.length; i++) {
+			items.add(initPagerItem(imgString[i], imgString[i]));
 		}
 		mItem = items.size();
 	}
 
-	private View initPagerItem(int resID, String imgString) {
+	private View initPagerItem(String imgString2, String imgString) {
 		View layout1 = in.inflate(R.layout.homepage_viewpage, null);
 		ImageView imageView1 = (ImageView) layout1
 				.findViewById(R.id.tuijian_header_img);

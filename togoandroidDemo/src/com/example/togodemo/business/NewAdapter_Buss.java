@@ -77,24 +77,36 @@ import com.example.togodemo.variable.VARIABLE;
 			convertView=inflater.inflate(R.layout.listview_item, null);
 			}
 			//要从convertView 找对象，否则回报空指针
-			final TextView iv_shop=(TextView) convertView.findViewById(R.id.textView1);
-			final TextView tv_shopname=(TextView) convertView.findViewById(R.id.textView2);
-			TextView tv_shopsome=(TextView) convertView.findViewById(R.id.textView3);
-			ImageView iv_shopimage=(ImageView) convertView.findViewById(R.id.imageView1);
+			final TextView iv_shop=(TextView) convertView.findViewById(R.id.tv_soucang1);
+			final TextView tv_shopname=(TextView) convertView.findViewById(R.id.tv_soucang2);
+			TextView tv_shopsome=(TextView) convertView.findViewById(R.id.tv_soucang3);
+			ImageView iv_shopimage=(ImageView) convertView.findViewById(R.id.iv_soucang);
 			//获取图片要注意，不要写成setId
 			//setText不能添加纯数字，要在数字前面加字符串，比如加个数量
 			iv_shop.setText(s.getF_c_Sname());
-			tv_shopname.setText("$"+s.getF_d_Ssprice());
+			tv_shopname.setText(s.getF_d_Ssprice()+"元");
 			tv_shopsome.setText(s.getF_c_Stype());
 			fm.display(iv_shopimage, VARIABLE.IMAGE_URL+s.getF_c_Simagpath());
 			
-			tv_shopname.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View arg0) {
-					Toast.makeText(hc, tv_shopname.getText().toString(), Toast.LENGTH_SHORT).show();	
-				}
-			});
+			TextView tv_business_type = (TextView) convertView.findViewById(R.id.tv_business_type);
+			TextView tv_business_money = (TextView) convertView.findViewById(R.id.tv_business_money);
+			if(string.equals("haoping")){
+					int total = (int) (s.getF_d_Ssprice()+(position+1)*40);
+					 tv_business_type.setText("最低价");
+					 tv_business_money.setText("原价："+total+"元");
+			}
+			
+			if(string.equals("baoyou")){
+				int total = (int) (s.getF_d_Ssprice()+20);
+				tv_business_type.setText("包邮");
+				tv_business_money.setText("原价："+total+"元");
+			}
+			
+			if(string.equals("cuxiao")){
+				int total = (int) (s.getF_d_Ssprice()+(position+1)*20);
+				tv_business_type.setText("限时促销");
+				tv_business_money.setText("原价："+total+"元");
+			}
 			
 			return convertView;
 		}

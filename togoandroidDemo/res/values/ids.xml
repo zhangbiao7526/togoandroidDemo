@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 用户登陆界面，login_layout.xml -->
+    <!-- button -->
+    <item name="btn_login" type="id"/>
+    <item name="btn_calloff" type="id"/>
+
+    <!-- EditText -->
+    <item name="edt_login_name" type="id"/>
+    <item name="edt_login_password" type="id"/>
+	
+    <!-- TextView -->
+    <item name="tv_login_register" type="id"/>
+    <item name="tv_login_forget" type="id"/>
+    
+    
+</resources>

@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.selfcenter.self_shoucang;
 import com.example.togodemo.home.NewAdapter;
 import com.example.togodemo.mode.ShopInfo;
 import com.example.togodemo.variable.VARIABLE;
@@ -20,9 +21,9 @@ public class CollectNet {
 		
 		static String COLLECT_URL=VARIABLE.HOMEVIPAGER_URI9;
 		public static void getDataByCollect(final Activity activity,
-				final ListView listview,final FinalBitmap fb){
+				final ListView listview,final FinalBitmap fb, String username){
 			AjaxParams params = new AjaxParams();
-			//params.put("search_info", string);
+			params.put("username", username);
 			FinalHttp fh=new FinalHttp();
 			fh.post(COLLECT_URL, params, new AjaxCallBack<Object>() {
 				
@@ -37,6 +38,9 @@ public class CollectNet {
 					//在线程跳转，在线程外跳转易出现延迟造成空指针
 					if(list_shops!=null){
 						NewAdapter adapter=new NewAdapter(activity, list_shops, fb);
+						((self_shoucang) activity).setAdapter(adapter);
+						((self_shoucang) activity).setList_shops(list_shops);
+						
 						listview.setAdapter(adapter);
 					}else{
 						Toast.makeText(activity, "空值", 1000).show();
@@ -44,5 +48,20 @@ public class CollectNet {
 					
 				}
 			});
+		}
+		public static void delete(String username, int shopid) {
+			AjaxParams params = new AjaxParams();
+			params.put("method", "method");
+			params.put("username", username);
+			params.put("shopid", String.valueOf(shopid));
+			FinalHttp fh=new FinalHttp();
+			fh.post(COLLECT_URL, params, new AjaxCallBack<Object>() {
+				
+				@Override
+				public void onSuccess(Object t) {
+					super.onSuccess(t);
+				}
+			});
+			
 		}
 }

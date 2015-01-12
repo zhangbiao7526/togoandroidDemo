@@ -16,6 +16,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -35,13 +36,31 @@ public class Classify_Activity_children extends Activity implements android.widg
 	private NewAdapter newadapter;
 	private FinalBitmap fm;
 	private ListView find_class_list;
-	private List<ShopInfo> data;
 	public myApplication my;
+	private TextView tv_title;
+	private ImageView img_back,img_search_visible;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+		// 自定义标题栏
+		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.listview_layout);
+		
+		// 自定义的标题栏xml布局
+				getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
+						R.layout.layout_title_back);
+				tv_title = (TextView) findViewById(R.id.tv_title);
+				tv_title.setText(R.string.app_name);
+				img_back = (ImageView) findViewById(R.id.img_back);
+				img_search_visible = (ImageView) findViewById(R.id.img_search_visible);
+				img_search_visible.setVisibility(View.GONE);
+				img_back.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View arg0) {
+						Classify_Activity_children.this.finish();
+					}
+				});
 		find_class_list=(ListView) findViewById(R.id.shop_listview);
 		find_class_list.setOnItemClickListener(this);
 		fm = FinalBitmap.create(this);
@@ -114,26 +133,25 @@ public class Classify_Activity_children extends Activity implements android.widg
 			convertView=inflater.inflate(R.layout.listview_item, null);
 			}
 			//要从convertView 找对象，否则回报空指针
-			final TextView iv_shop=(TextView) convertView.findViewById(R.id.textView1);
-			final TextView tv_shopname=(TextView) convertView.findViewById(R.id.textView2);
-			TextView tv_shopsome=(TextView) convertView.findViewById(R.id.textView3);
-			ImageView iv_shopimage=(ImageView) convertView.findViewById(R.id.imageView1);
-			
+			final TextView iv_shop=(TextView) convertView.findViewById(R.id.tv_soucang1);
+			final TextView tv_shopname=(TextView) convertView.findViewById(R.id.tv_soucang2);
+			TextView tv_shopsome=(TextView) convertView.findViewById(R.id.tv_soucang3);
+			ImageView iv_shopimage=(ImageView) convertView.findViewById(R.id.iv_soucang);
 			//获取图片要注意，不要写成setId
 			//setText不能添加纯数字，要在数字前面加字符串，比如加个数量
 			iv_shop.setText(s.getF_c_Sname());
-			tv_shopname.setText("$"+s.getF_d_Ssprice());
+			tv_shopname.setText(s.getF_d_Ssprice()+"元");
 			tv_shopsome.setText(s.getF_c_Stype());
 			fm.display(iv_shopimage, VARIABLE.IMAGE_URL+s.getF_c_Simagpath());
 			
-			tv_shopname.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View arg0) {
-					Toast.makeText(Classify_Activity_children.this, tv_shopname.getText().toString(), Toast.LENGTH_SHORT).show();	
-				}
-			});
-			
+//			iv_shopimage.setOnClickListener(new OnClickListener() {
+//				
+//				@Override
+//				public void onClick(View arg0) {
+//					Toast.makeText(Classify_Activity_children.this, tv_shopname.getText().toString(), Toast.LENGTH_SHORT).show();	
+//				}
+//			});
+//			
 			return convertView;
 		}
 		
